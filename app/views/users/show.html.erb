@@ -1,0 +1,96 @@
+
+
+
+  <div class="container" style="margin-top: 100px;">
+  	<div class="row">
+    	<div class="col-5">
+        	<h2 style="border-bottom: 8px solid #e6e6fa; color:#a9a9a9; font-family: Chalkduster; ">User info</h2>
+        	<%= attachment_image_tag @user, :Image, :fill, 80, 80, format: 'jpeg',fallback: "no_image.jpg", class: "img-circle pull-left profile-img" %>
+        	<table class="table">
+           	<tbody>
+      				<tr>
+        				<th>name</th>
+        				<th><%= "#{@user.last_name}" + "#{@user.first_name}" %></th>
+      				</tr>
+      				<tr>
+        				<th>introduction</th>
+        				<th><%= @user.introduction %></th>
+      				</tr>
+      				</tr>
+      			    <th>prefecture</th>
+      				<th><%= @user.prefecture %></th>
+      				</tr>
+              <tr>
+                <th>follows</th>
+                <th><%= link_to " #{@user.follower.count}", follows_path(@user.id) %></th>
+              </tr>
+              <tr>
+                <th>followers</th>
+                <th><%= link_to "#{@user.followed.count}", followers_path(@user.id) %></th>
+              </tr>
+              <!-------------------follow機能------------------->
+              <tr>
+                <th><%= "フォロー数: #{@user.follower.count}" %><%= "フォロワー数: #{@user.followed.count}" %></th>
+                    <% unless @user == current_user %>
+                      <th><% if current_user.following?(@user) %>
+                            <%= link_to 'フォロー解除', relationship_path(@user.id), method: :DELETE, class:"btn btn-danger"  %>
+                          <% else %>
+                            <%= link_to 'フォローする', relationships_path(@user.id), method: :post, class:"btn btn-primary" %>
+                          <% end %>
+                      </th>
+                    <% end %>
+                </th>
+              </tr>
+            </tbody>
+  			  </table>
+          <% if @user.id == current_user.id %>
+      			 <%= link_to "edit", edit_user_path(current_user), class: "btn btn-primary" %>
+    		  <% else %>
+      			 <%=  link_to "", user_path(current_user.id), class: "col-xs-6 btn btn-default glyphicon glyphicon-wrench" %>
+    		  <% end %>
+		  </div>
+	  </div>
+  </div>
+
+
+
+
+
+    <main class="clearfix">
+        <section class="post">
+            <h2 class="post-headline" style="border-bottom: 8px solid #e6e6fa; color:#a9a9a9; font-family: Chalkduster; ">Post index</h2>
+            <div class="post-box" style="padding-top:30px;">
+              <div class="post-item clearfix">
+                    <% @user.posts.each do |post| %>
+                        <div class="post-box">
+                            <div class="pict"><%= attachment_image_tag post, :image %></div>
+                            <span class="pictname">step1</span>
+                            <h3 class="title" style="margin-top: 30px;">
+                              <!---------------いいね機能-------------->
+                              <% if post.favorited_by?(current_user) %>
+                                <li style="list-style: none; float: left;">
+                                  <%= link_to post_favorites_path(post.id), method: :delete,remote: true do %>
+                                    <i class="far fa-heart" aria-hidden="true" style="color: red;"></i>
+                                  <% end %>
+                                </li>
+                              <% else %>
+                                <li style="list-style: none; float: left;">
+                                  <%= link_to post_favorites_path(post.id), method: :post,remote: true do %>
+                                    <i class="far fa-heart" aria-hidden="true"></i>
+                                  <% end %>
+                                </li>
+                              <% end %>
+                            </h3>
+                            <span class="category"><%= post.pet_genre %>/<%= post.pet_name %>/<%= post.pet_age %>/<%= post.created_at.strftime('%Y.%m.%d') %></span>
+                                <div class="post-user-name">by..<%=link_to "#{post.user.last_name}" + "#{post.user.first_name}", user_path(post.user_id) %></div>
+                            <p class="text"><%= post.body %></p>
+                        </div>
+                        <% if @user == current_user %>
+                          <%= link_to "Edit", edit_post_path(post.id), class: "col-xs-12 btn btn-warning" %>
+                          <%= link_to "Destroy", post_path(post.id), method: :delete, "data-confirm" => "Are you sure?",class: "btn btn-danger"  %>
+                        <% end %>
+                    <% end %>
+              </div>
+            </div>
+        </section>
+    </main>

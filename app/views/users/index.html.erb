@@ -1,0 +1,53 @@
+<div class="container"> <!-- ここを追加 -->
+    <div class="row">  
+      <div class="col-xs-3"> 
+            <%= form_for(@post) do |f| %>
+                <table style="margin-left:10px;" >
+                    <tr>
+                        <td><%= f.label :pet_name %></td>
+                　　     <td><%= f.text_field :pet_name, {size:"10"} %></td>
+            　　     </tr>
+                    <tr>
+                        <td><%= f.label :age %></td>
+                        <td><%= f.select :pet_age, Post.pet_ages.keys, {prompt: '選択してください'}, class: 'form-control  btn-default' %></td>
+            　　     </tr>
+            　　     <tr>
+                　　     <td><%= f.label :genre %></td>
+                　　     <td><%= f.select :pet_genre, Post.pet_genres.keys, {prompt: '選択してください'}, class: 'form-control  btn-default' %></td>
+            　　     </tr>
+            　　     <tr>
+                　　     <td><%= f.label :image %></td>
+                　　     <td><%= f.attachment_field :image %></td>
+            　　     </tr>
+            　　     <tr>
+                　　    <td><%= f.label :body %></td>
+                　　    <td><%= f.text_area  :body %></td>
+            　　    </tr>
+            　　    <tr>
+                　　  <td></td>
+                　　  <td><%= f.submit '投稿' %></td>
+            　　    </tr>
+        　　　　  </table>
+    　　     <% end %>
+　　　　  </div>
+        <div class="col-xs-9">  <!-- ここを追加 --> <!-- ここを追加 -->
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Body</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>aa</td>
+              <td>kk</td>
+              <td>aa</td>
+              <td>ooo00000000000000000</td>
+            </tr>
+        </tbody>
+         </table>
+     </div>
+  
+    </div>  <!-- ここを追加 -->
+  </div>      <!-- ここを追加 -->
