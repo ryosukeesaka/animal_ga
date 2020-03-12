@@ -3,6 +3,15 @@ class User < ApplicationRecord
     devise :database_authenticatable, :registerable,
            :recoverable, :rememberable, :validatable
     attachment :Image
+    acts_as_paranoid
+
+    validates :last_name, presence: true
+    validates :last_name_kana, presence: true
+    validates :first_name, presence: true
+    validates :first_name_kana, presence: true
+    validates :Image, presence: true
+    validates :prefecture, presence: true
+    validates :phone_number, presence: true
 
     enum prefecture: {
     "--未選択--":0,北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,

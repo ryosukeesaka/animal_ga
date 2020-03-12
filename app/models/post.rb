@@ -1,6 +1,11 @@
 class Post < ApplicationRecord
 	belongs_to :user
 	attachment :image
+	validates :image, presence: true
+  	validates :pet_age, presence: true
+  	validates :pet_genre, presence: true
+  	validates :pet_name, presence: true
+  	validates :body, length: { in: 1..300 }
     has_many :post_comments, dependent: :destroy
     has_many :favorites, dependent: :destroy
     def favorited_by?(user)

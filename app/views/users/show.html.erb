@@ -1,4 +1,7 @@
 
+<p><%= flash[:update] %></p>
+<p><%= flash[:notice] %></p>
+<p><%= flash[:destroy] %></p>
 
 
   <div class="container" style="margin-top: 100px;">
@@ -35,7 +38,7 @@
                       <th><% if current_user.following?(@user) %>
                             <%= link_to 'フォロー解除', relationship_path(@user.id), method: :DELETE, class:"btn btn-danger"  %>
                           <% else %>
-                            <%= link_to 'フォローする', relationships_path(@user.id), method: :post, class:"btn btn-primary" %>
+                            <%= link_to 'フォローする', relationships_path(@user.id), method: :post, class:"btn btn-warning" %>
                           <% end %>
                       </th>
                     <% end %>
@@ -43,8 +46,8 @@
               </tr>
             </tbody>
   			  </table>
-          <% if @user.id == current_user.id %>
-      			 <%= link_to "edit", edit_user_path(current_user), class: "btn btn-primary" %>
+          <% if @user == current_user %>
+      			 <%= link_to "edit", edit_user_path(@user.id), class: "btn btn-primary" %>
     		  <% else %>
       			 <%=  link_to "", user_path(current_user.id), class: "col-xs-6 btn btn-default glyphicon glyphicon-wrench" %>
     		  <% end %>
@@ -86,7 +89,7 @@
                             <p class="text"><%= post.body %></p>
                         </div>
                         <% if @user == current_user %>
-                          <%= link_to "Edit", edit_post_path(post.id), class: "col-xs-12 btn btn-warning" %>
+                          <%= link_to "Edit", edit_post_path(post.id), class: "btn btn-warning" %>
                           <%= link_to "Destroy", post_path(post.id), method: :delete, "data-confirm" => "Are you sure?",class: "btn btn-danger"  %>
                         <% end %>
                     <% end %>
@@ -94,3 +97,4 @@
             </div>
         </section>
     </main>
+

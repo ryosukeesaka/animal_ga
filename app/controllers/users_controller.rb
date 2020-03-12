@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
 	before_action :authenticate_user!
     before_action :correct_user, only: [:edit, :update]
-    
+
     def index
         @post = Post.new
     end
 	def show
-		@user = User.find(params[:id])
+		@user = User.with_deleted.find(params[:id])
+        @users = User.with_deleted.all
 
 	end
 
@@ -17,15 +18,15 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
         if @user.update(user_params)
             redirect_to user_path(@user.id)
-            flash[:notice] = "You have updated user successfully."
+            flash[:update] = "You have updated user successfully!!"
         else
         	render action: :edit
         end
 	end
 
 	def edit
-		@user = User.find(params[:id])
-        if @user != current_user
+		@user = User.with_deleted.find(params[:id])
+        if @user != current_user or @user.admin
             redirect_to user_path(current_user.id)
         end
 	end
@@ -33,7 +34,7 @@ class UsersController < ApplicationController
 
 	 private
         def user_params
-            params.require(:user).permit(:id,:first_name,:last_name,:first_name_kana,:last_name_kana,:phone_number,:introduction,:prefecture,:Image)
+            params.require(:user).permit(:id,:admin,:first_name,:last_name,:first_name_kana,:last_name_kana,:phone_number,:introduction,:prefecture,:Image, :user_status)
         end
 
     def correct_user
