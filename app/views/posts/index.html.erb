@@ -17,19 +17,7 @@
                         <span class="pictname">step1</span>
                         <div class="title" style="margin-top: 30px;">
                             <!-------------いいね機能-------------->
-                            <% if post.favorited_by?(current_user) %>
-                                <li style="list-style: none; float: left;">
-                                    <%= link_to post_favorites_path(post.id, q: "l"), method: :delete,remote: true do %>
-                                    <i class="far fa-heart" aria-hidden="true" style="color: red;"></i>
-                                    <% end %>
-                                </li>
-                            <% else %>
-                                <li style="list-style: none; float: left;">
-                                    <%= link_to post_favorites_path(post.id,q: "l"), method: :post ,remote: true do %>
-                                    <i class="far fa-heart" aria-hidden="true"></i>
-                                    <% end %>
-                                </li>
-                            <% end %>
+                           <%= render 'posts/favorite', post: post %>
                                 <span class="category"><%= post.pet_genre %>/<%= post.pet_name %>/<%= post.pet_age %>/<%= post.created_at.strftime('%Y.%m.%d') %></span>
                                 <div class="post-user-name">by..<%=link_to "#{post.user.last_name}" + "#{post.user.first_name}", user_path(post.user_id) %></div>
                         </div>

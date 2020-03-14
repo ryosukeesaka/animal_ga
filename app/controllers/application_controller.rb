@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
 
  	protected
  	def configure_permitted_parameters
- 		added_attrs = [:last_name,:first_name,:first_name_kana,:last_name_kana,:introduction,:phone_number,:Image,:email,:prefecture]
+ 		added_attrs = [:last_name,:first_name,:first_name_kana,:last_name_kana,:introduction,:phone_number,:Image,:email,:prefectures, :city]
    		devise_parameter_sanitizer.permit(:sign_up, keys: added_attrs)
 
    		devise_parameter_sanitizer.permit(:account_update, keys: added_attrs)

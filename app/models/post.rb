@@ -16,6 +16,22 @@ class Post < ApplicationRecord
 		"11歳":11,"12歳":12,"13歳":13,"14歳":14,"15歳":15,"16歳":16,"17歳":17,"18歳":18,"19歳":19,"20歳":20,"21歳〜":21 }
 	enum pet_genre: { "犬":0, "猫":1, "ウサギ":2, "ハムスター":3, "ハリネズミ":4, "鳥":5, "亀":6, "その他":7}
 
+  def Post.search(search, user_or_post, how_search)
+          if user_or_post == "2"
+            if how_search == "1"
+                  Post.where(["pet_genre LIKE ?", "%#{search}%"])#name LIKE＝nameカラムを検索
+              elsif how_search == "2"
+                    Post.where(['pet_genre LIKE ?', "%#{search}"])
+                elsif how_search == "3"
+                    Post.where(['pet_genre LIKE ?', "#{search}%"])
+                elsif how_search == "4"
+                    Post.where(['pet_genre LIKE ?', "#{search}"])
+                else
+                  Post.all
+              end
+            end
+    end
+
 
 
 end

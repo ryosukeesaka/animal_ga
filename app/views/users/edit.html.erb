@@ -14,10 +14,16 @@
               <%= f.text_field :last_name_kana,  {size:"10"} %><%= f.text_field :first_name_kana,  {size:"10"} %>
             </td>
           </tr>
-          <tr>
-            <td style="background: rgba(0,0,0,0.1);" style="border-style: none;">adress</td>
+         <tr>
+            <td style="background: rgba(0,0,0,0.1);" style="border-style: none;">prefectutres</td>
             <td  valign="top"  style="border-style: none; width:150px;">
-              <%= f.select :prefecture, User.prefectures.keys, {prompt: '選択してください'}, class: 'form-control  btn-default' ,style:"width:120px" %>
+              <%= f.text_field  :prefectures,{size:"10"} %>
+            </td>
+          </tr>
+          <tr>
+            <td style="background: rgba(0,0,0,0.1);" style="border-style: none;">city</td>
+            <td  valign="top"  style="border-style: none; width:150px;">
+              <%= f.text_field  :city,{size:"20"} %>
             </td>
           </tr>
           <tr>

@@ -1,0 +1,84 @@
+ <div class="search" style="margin-left: 20px;">
+    <%= form_tag(search_path, :method => 'get') do %>
+        <%= select_tag(:option, options_for_select([["都道府県で絞る", "1"],["post","2"]]))%>
+        <%= select_tag(:choice, options_for_select([["あいまい検索", "1" ],["後方一致検索", "2" ],["前方一致検索", "3" ],["完全一致検索", "4" ]])) %>
+        <%= text_field_tag :search %>
+        <%= submit_tag 'Search', :name => nil %>
+    <% end %>
+</div>
+
+<% if @user_or_post == "1" %>
+    <h3>User</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>image</th>
+                    <th>name</th>
+                    <th>prefectures</th>
+                    <th>pet name</th>
+                    <th>pet genre</th>
+                    <th colspan="5"></th>
+                </tr>
+            </thead>
+                <tbody>
+                    <% @users.each do |user| %>
+                        <tr>
+                            <th></th>
+                            <th>
+                                <%= attachment_image_tag user, :Image, format: 'jpeg', fallback: "no_image.jpg", size: '40x40', class: "img-circle" %></th>
+                            <th><%= link_to "#{user.last_name}" + "#{user.first_name}", user_path(user.id) %></th>
+                            <th><%= user.prefectures %></th>
+                            <th>
+                            	<% user.posts.each do |post| %>
+                            	　　
+                            		<%= post.pet_name %>
+                            	<% end %>
+                            </th>
+                            <th>
+                            	<% user.posts.each do |post| %>
+                            		<%= post.pet_genre %>
+                            	<% end %>
+                            </th>
+
+                            <th><%= "フォロー数: #{user.follower.count}" %><%= "フォロワー数: #{user.followed.count}" %></th>
+                            <th>
+                                <% unless user == current_user %>
+                                <% if current_user.following?(user) %>
+                                    <%= link_to 'フォロー解除', relationship_path(user.id), method: :DELETE %>
+                                <% else %>
+                                    <%= link_to 'フォローする', relationships_path(user.id), method: :post %>
+                                <% end %>
+                                <% end %>
+                            </th>
+                        </tr>
+                    <% end %>
+                </tbody>
+        </table>
+<!--------------------------------------------------------------
+<% elsif @user_or_post == "2" %>
+    <h3>Post</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>orner</th>
+                    <th>pet name</th>
+                    <th>pet genre</th>
+                    <th>body</th>
+                </tr>
+            </thead>
+            <% @posts.each do |post| %>
+                <tbody>
+                    <tr>
+                        <th></th>
+                        <th><%= link_to user_path(post.user) do %>
+                                <%= attachment_image_tag post.user, :Image,format: 'jpeg', fallback: "no_image.jpg",size: "50x50", class: "img-circle"  %>
+                            <% end %>
+                        <th> <%= link_to post.pet_name, user_path(post.user.id) %></th>
+                        <th><%= post.pet_genre %></th>
+                        <th><%= post.body %></th>
+                    </tr>
+                </tbody>
+            <% end %>
+        </table>
+<% end %>

@@ -1,0 +1,13 @@
+<% if post.favorited_by?(current_user) %>
+                                <li style="list-style: none; float: left;">
+                                    <%= link_to post_favorites_path(post.id, q: "l"), method: :delete,remote: true do %>
+                                    <i class="far fa-heart" aria-hidden="true" style="color: red;"></i>
+                                    <% end %>
+                                </li>
+                            <% else %>
+                                <li style="list-style: none; float: left;">
+                                    <%= link_to post_favorites_path(post.id,q: "l"), method: :post ,remote: true do %>
+                                    <i class="far fa-heart" aria-hidden="true"></i>
+                                    <% end %>
+                                </li>
+                            <% end %>
