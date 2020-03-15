@@ -18,7 +18,7 @@
                             <div class="comment-entry" style="margin-bottom: 10px; font-size:13px;" ><%= post_comment.created_at.strftime('%Y/%m/%d') %></div>
                                 <% if post_comment.user_id == current_user.id %>
                                     <div class="destroy-link">
-                                        <%= link_to "削除", post_post_comment_path(post, post_comment), method: :delete %>
+                                        <%= link_to "削除", post_post_comment_path(post, post_comment),remote: true, method: :delete %>
                                     </div>
                                 <% end %>
                         </div>
