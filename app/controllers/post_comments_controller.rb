@@ -5,10 +5,11 @@ class PostCommentsController < ApplicationController
 		comment = PostComment.new(comment: params[:post_comment][:comment],
 		                          post_id: params[:post_id],#urlからパラメーター受け取ってくる
 		                          user_id: current_user.id)
-		post = Post.find(params[:post_id])
+		@post = Post.find(params[:post_id])
+		@post_comment = PostComment.new
 
 		comment.save!
-		redirect_to posts_path
+		
 	end
 
 	def destroy
