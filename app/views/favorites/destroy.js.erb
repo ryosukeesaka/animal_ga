@@ -1,1 +1,2 @@
-$("#post_<%= @post.id %>").html("<%= j(render 'posts/favorite', post: @post ) %>");
+
+$("#post_<%= @post.id %>").html("<%= j(render 'posts/favorite', post: @post ) %>"); //@post.idはindexのpost.idとは別？　controllerの@postでpost一件見つけてる？indexで回してるeachはviewが変わった時点で使えない。index -> controller -> js -> jsを返す

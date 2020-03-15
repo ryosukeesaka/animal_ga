@@ -15,18 +15,16 @@
   <body>
     <script>
       $(function(){
+        $('.mx-3')
+        .mouseover(function(){
+          $(this).css("background", "#ffffff");
+        })
+        .mouseout(function(){
+        $(this).css("background", "#f5f5f5");
+        });
+        });
+    </script>
 
-　　$('.mx-3')
-.mouseover(function(){
-  $(this).css("background", "#ffffff");
-})
-.mouseout(function(){
-  $(this).css("background", "#f5f5f5");
-});
-
-
-});
-</script>
     <%= render 'layouts/header' %>
     <!---------main visual---------->
     <div class="main-visual">

@@ -9,14 +9,16 @@ Rails.application.routes.draw do
   	devise_for :users
 
  	root to: "homes#top"
- 	post 'relationships/:id' => 'relationships#create', as: 'relationships'
+ 	post "relationships/:id" => "relationships#create", as: "relationships"
  	get "users/:id/follows" => "relationships#follows", as: "follows"
   get "users/:id/followers" => "relationships#followers", as: "followers"
+  get "users/:id/edit/withdraw" => "users#withdraw", as: "withdraw"
+  get "search" => "users#search", as: "search"
     namespace :admins do
      resources :users, only: [:index, :show, :update, :edit]
    end
     resources :relationships, only: [:destroy]
-  	resources :users, only: [:index, :show, :edit, :update, :creates]
+  	resources :users, only: [:index, :show, :edit, :update, :creates, :destroy]
   	resources :posts, only: [:index, :create, :show, :update, :edit, :destroy] do
   	  resource :post_comments, only: [:create, :destroy]
   	  resource  :favorites, only: [:create, :destroy]

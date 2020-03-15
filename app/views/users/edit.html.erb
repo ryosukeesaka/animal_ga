@@ -1,9 +1,10 @@
 <div class="profbox">
-  <h5 style="margin: 30px;  padding-top: 30px">Edit</h5>
+  <h5 style="margin: 30px; padding-top: 30px">Edit</h5>
+  <button type="" style="margin: 10px; "><%= link_to "退会する", withdraw_path(current_user.id) %></button>
       <%= form_for(@user) do |f| %>
         <table style="width:50%; margin-left:10px;" class="table table-condensed" cellspacing="0" cellpadding="5" >
           <tr>
-            <td border-style: none; style="background: rgba(0,0,0,0.1);" style="border-style: none;">name</td>
+            <td style="background: rgba(0,0,0,0.1);" style="border-style: none;">name</td>
             <td valign="top"  style="border-style: none; width:300px;">
               <%= f.text_field :last_name, {size:"10"} %><%= f.text_field :first_name,  {size:"10"} %>
             </td>
@@ -50,13 +51,13 @@
               <%= f.text_field :phone_number %>
             </td>
           </tr>
-          <% end %>
         </table>
         <div class="submit-botton" style="padding:30px;">
           <%= f.submit "Update you!!" %>
         </div>
       <% end %>
 </div>
+
 
 <% if @user.errors.any? %>
   <div id="error_explanation">

@@ -41,6 +41,16 @@ class UsersController < ApplicationController
             end
     end
 
+    def withdraw
+        @user = User.with_deleted.find(params[:id])
+    end
+
+    def destroy
+        user = User.find(params[:id]) #データ(レコード)を1件取得
+        user.destroy #データ（レコード）を削除
+        redirect_to posts_path
+    end
+
 
 
 	 private

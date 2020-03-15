@@ -8,7 +8,7 @@
 <main class="clearfix">
     <!-----------------投稿一覧--------------->
     <section class="post" style="float:left;">
-         <h2 class="post-headline" style="border-bottom: 8px solid #e6e6fa; color:#a9a9a9; font-family: Chalkduster; ">Post index</h2>
+         <h2 class="post-headline" style="border-bottom: 8px solid #e6e6fa; color:#808080; font-family: Chalkduster; ">Post index</h2>
         <div class="post-box" style="padding-top:30px;">
             <div class="post-item clearfix">
                 <% @posts.each do |post| %>
@@ -23,7 +23,7 @@
                                 <span class="category"><%= post.pet_genre %>/<%= post.pet_name %>/<%= post.pet_age %>/<%= post.created_at.strftime('%Y.%m.%d') %></span>
                                 <div class="post-user-name">by..<%=link_to "#{post.user.last_name}" + "#{post.user.first_name}", user_path(post.user_id) %></div>
                         </div>
-                        <p class="text"><%= post.body %></p>
+                        <p class="post-text"><%= post.body %></p>
                     </div>
             </div>
         </div>
@@ -37,22 +37,25 @@
             <%= f.submit "送信する", class: "btn btn-default  pull-right",style:"font-size: 5px; margin-top: 5px;" %>
         <% end %>
     </div>
-    <h2 class="comment-count" style="font-size: 15px;"><%= post.post_comments.count %>件のコメント</h2>
+    <h2 class="comment-count" style="font-size: 10px;"><%= post.post_comments.count %>件のコメント</h2>
         <ul style="list-style: none; margin-bottom: 10px;">
             <!-----postモデルに紐づいたpost_commentsモデル------>
             <% post.post_comments.each do |post_comment| %>
                 <li class="comment" style="list-style: none;">
                     <div class="comment-text" style="margin-bottom: 10px;">
                         <div class="comment-author">
-                            <a href="#" class="link-author"><%= link_to "#{post.user.last_name}" + "#{post.user.first_name}" %></a>
+                            <div class="comment-user-img">
+                            <%= attachment_image_tag post_comment.user, :Image, :fill, 40, 40, format: 'jpeg',fallback: "no_image.jpg", class: "img-circle pull-left profile-img" %></div>
+                            <div class="link-author"><%= link_to "#{post_comment.user.last_name}" + "#{post_comment.user.first_name}", user_path(post_comment.user.id) %></div>
                             <span class="comment-body"><%= post_comment.comment %></span>
-                            <li style="list-style: none; float:right;">
+                            <div class="comment-entry" style="margin-bottom: 10px; font-size:13px;" ><%= post_comment.created_at.strftime('%Y/%m/%d') %></div>
                                 <% if post_comment.user_id == current_user.id %>
-                                    <%= link_to "削除", post_post_comment_path(post, post_comment), method: :delete %>
+                                    <div class="destroy-link">
+                                        <%= link_to "削除", post_post_comments_path(post, post_comment), method: :delete %>
+                                    </div>
                                 <% end %>
-                            </li>
+                            </div>
                         </div>
-                        <div style="margin-bottom: 10px;" class="comment-entry"><%= post_comment.created_at.strftime('%Y/%m/%d') %></div>
                     </div>
                 </li>
             <% end %>

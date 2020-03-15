@@ -7,7 +7,7 @@
   <div class="container" style="margin-top: 100px;">
   	<div class="row">
     	<div class="col-5">
-        	<h2 style="border-bottom: 8px solid #e6e6fa; color:#a9a9a9; font-family: Chalkduster; ">User info</h2>
+        	<h2 style="border-bottom: 8px solid #e6e6fa; color:#808080; font-family: Chalkduster; ">User info</h2>
         	<%= attachment_image_tag @user, :Image, :fill, 80, 80, format: 'jpeg',fallback: "no_image.jpg", class: "img-circle pull-left profile-img" %>
         	<table class="table">
            	<tbody>
@@ -61,32 +61,22 @@
 
     <main class="clearfix">
         <section class="post">
-            <h2 class="post-headline" style="border-bottom: 8px solid #e6e6fa; color:#a9a9a9; font-family: Chalkduster; ">Post index</h2>
+            <h2 class="post-headline" style="border-bottom: 8px solid #e6e6fa; color:#808080; font-family: Chalkduster; ">Post index</h2>
             <div class="post-box" style="padding-top:30px;">
               <div class="post-item clearfix">
                     <% @user.posts.each do |post| %>
                         <div class="post-box">
                             <div class="pict"><%= attachment_image_tag post, :image %></div>
                             <span class="pictname">step1</span>
-                            <h3 class="title" style="margin-top: 30px;">
+                            <div class="title" style="margin-top: 30px;">
                               <!---------------いいね機能-------------->
-                              <% if post.favorited_by?(current_user) %>
-                                <li style="list-style: none; float: left;">
-                                  <%= link_to post_favorites_path(post.id), method: :delete,remote: true do %>
-                                    <i class="far fa-heart" aria-hidden="true" style="color: red;"></i>
-                                  <% end %>
-                                </li>
-                              <% else %>
-                                <li style="list-style: none; float: left;">
-                                  <%= link_to post_favorites_path(post.id), method: :post,remote: true do %>
-                                    <i class="far fa-heart" aria-hidden="true"></i>
-                                  <% end %>
-                                </li>
-                              <% end %>
-                            </h3>
-                            <span class="category"><%= post.pet_genre %>/<%= post.pet_name %>/<%= post.pet_age %>/<%= post.created_at.strftime('%Y.%m.%d') %></span>
+                              <div id="post_<%= post.id %>">
+                                <%= render 'posts/favorite', post: post %>
+                              </div>
+                              <span class="category"><%= post.pet_genre %>/<%= post.pet_name %>/<%= post.pet_age %>/<%= post.created_at.strftime('%Y.%m.%d') %></span>
                                 <div class="post-user-name">by..<%=link_to "#{post.user.last_name}" + "#{post.user.first_name}", user_path(post.user_id) %></div>
-                            <p class="text"><%= post.body %></p>
+                            </div>
+                            <p class="post-text"><%= post.body %></p>
                         </div>
                         <% if @user == current_user %>
                           <%= link_to "Edit", edit_post_path(post.id), class: "btn btn-warning" %>
