@@ -1,8 +1,9 @@
 <header class="navbar">
   <div class="container">
-    <span style="color:#808080; padding-top:50px; margin-bottom: 30px; font-family: Chalkduster; font-size:30px;">AnimalGram</span>
+    <span style="color:#808080; padding-top:50px; margin-bottom: 30px; font-family: Chalkduster; font-size:40px;">AnimalGram</span>
     <ul class="nav">
       <li class="mx-3"><%= link_to 'Top', posts_path %></li>
+      <li class="mx-3"><%= link_to 'Host family', transfer_path %></li>
       <% if admin_signed_in? %>
         <li class="mx-3"><%= link_to '管理者ログアウト', destroy_admin_session_path, method: :delete %></li>
         <li class="mx-3"><%= link_to 'ユーザー一覧', admins_users_path %></li>
@@ -15,8 +16,16 @@
           <li class="mx-3"><%= link_to 'Log in', new_user_session_path %></li>
           <li class="mx-3"><%= link_to '管理者ログイン', new_admin_session_path %></li>
       <% end %>
+        <li class="mx-3">
+          <!--------------検索機能------------------->
+          <%= form_tag(search_path, :method => 'get') do %>
+            <%= select_tag(:option, options_for_select([["ユーサー名で絞る", "1"],["動物ジャンルで絞る","2"]]))%>
+            <%= select_tag(:choice, options_for_select([["あいまい検索", "1" ],["後方一致検索", "2" ],["前方一致検索", "3" ],["完全一致検索", "4" ]])) %>
+            <%= text_field_tag :search %>
+            <%= submit_tag 'Search', :name => nil %>
+          <% end %>
+        </li>
     </ul>
   </div>
 </header>
-
 

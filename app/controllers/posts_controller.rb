@@ -6,6 +6,7 @@ class PostsController < ApplicationController
         @posts = Post.all
         @post = Post.new
         @post_comment = PostComment.new
+
     end
 
     def create
@@ -38,6 +39,11 @@ class PostsController < ApplicationController
         @post = Post.find(params[:id])
     end
 
+    def transfer
+        @posts = Post.where(transfer: true)
+        @post_comment = PostComment.new
+    end
+
     def destroy
         post = Post.find(params[:id])
         post.destroy
@@ -48,7 +54,7 @@ class PostsController < ApplicationController
     private
 
     def post_params
-        params.require(:post).permit(:id,:title, :body, :pet_name, :pet_age, :image_id,:pet_genre, :image)
+        params.require(:post).permit(:id,:title, :body, :pet_name, :pet_age, :image_id, :pet_genres, :image, :transfer)
     end
 
     def correct_user

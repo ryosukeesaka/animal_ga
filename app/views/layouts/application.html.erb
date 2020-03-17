@@ -4,7 +4,7 @@
     <title>AnimalGram</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
     <style type="text/css">
-      <!--a:link { color : #000000; }a:visited { color : #000000; }-->
+      <!--a:link { color:#000000;, text-decoration:none; }a:visited { color:#000000; }-->
 　　</style>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -20,7 +20,7 @@
           $(this).css("background", "#ffffff");
         })
         .mouseout(function(){
-        $(this).css("background", "#f5f5f5");
+        $(this).css("background", "#d3d3d3");
         });
         });
     </script>
@@ -30,9 +30,9 @@
     <div class="main-visual">
       <div class="main-visual-content">
         <p class="main-visual-text">
-         The world is a book<br>
-         and those who do not travel<br>
-         dread only one page.</p>
+         I think animals are the most amazing creatures.<br>
+         they give unconditional love.<br>
+         For me they are the role model for being alive.</p>
         <p class="main-visual-name">St. Augustine</p>
       </div>
     </div>
@@ -40,7 +40,7 @@
 
     <%= yield %>
     　　
-
+    <!------------topに戻るボタン------------>
     <span id="back">
       <a href="#">
         <%= image_tag('arrow.png') %>

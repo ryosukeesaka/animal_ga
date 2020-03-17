@@ -8,20 +8,22 @@
 <main class="clearfix">
     <!-----------------投稿一覧--------------->
     <section class="post" style="float:left;">
-         <h2 class="post-headline" style="border-bottom: 8px solid #e6e6fa; color:#808080; font-family: Chalkduster; ">Post index</h2>
+         <h2 class="post-headline" style="border-bottom: 8px solid #c0c0c0; color:#808080; font-family: Chalkduster; ">Post index</h2>
         <div class="post-box" style="padding-top:30px;">
             <div class="post-item clearfix">
                 <% @posts.each do |post| %>
                     <div class="post-box">
                         <div class="pict"><%= attachment_image_tag post, :image %></div>
-                        <span class="pictname">step1</span>
+                        <% if post.transfer != "not" %><!-----transfer wantなら画像にlaberを表示----->
+                            <span class="post-laber">里親募集中</span>
+                        <% end %>
                         <div class="title" style="margin-top: 30px;">
                            <!-------------いいね機能-------------->
                             <div id="post_<%= post.id %>">
                                 <%= render 'posts/favorite', post: post %>
                             </div>
-                                <span class="category"><%= post.pet_genre %>/<%= post.pet_name %>/<%= post.pet_age %>/<%= post.created_at.strftime('%Y.%m.%d') %></span>
-                                <div class="post-user-name">by..<%=link_to "#{post.user.last_name}" + "#{post.user.first_name}", user_path(post.user_id) %></div>
+                                <span class="category"><%= post.pet_genres %>/<%= post.pet_name %>/<%= post.pet_age %>/<%= post.created_at.strftime('%Y.%m.%d') %></span>
+                                <div class="post-user-name">by...<%= attachment_image_tag post.user, :Image, :fill, 30, 30, format: 'jpeg',fallback: "no_image.jpg", class: "img-circle pull-left profile-img" %><%=link_to "#{post.user.last_name}" + "#{post.user.first_name}", user_path(post.user_id) %></div>
                         </div>
                         <p class="post-text"><%= post.body %></p>
                     </div>
@@ -31,9 +33,9 @@
         <div id="post_comments_<%= post.id %>">
         <%= render 'posts/post_comment', post: post, post_comment: @post_comment %>
         </div>
-
-
         <% end %>
+
+
     </section>
     <!-------------投稿------------->
      <div class="sidebar" style="float:left;">
@@ -46,22 +48,25 @@
             　　     </tr>
                     <tr>
                         <td><%= f.label :age %></td>
-                        <td><%= f.select :pet_age, Post.pet_ages.keys, {prompt: '選択してください'}, class: 'form-control  btn-default' ,style:"width:150px" %></td>
+                        <td><%= f.select :pet_age, Post.pet_ages.keys, {prompt: 'select..'}, class: 'form-control  btn-default' ,style:"width:150px" %></td>
             　　     </tr>
             　　     <tr>
-                　　     <td><%= f.label :genre %></td>
-                　　     <td><%= f.select :pet_genre, Post.pet_genres.keys, {prompt: '選択してください'}, class: 'form-control  btn-default' ,style:"        width:150px" %></td>
-            　　     </tr>
+                        <td><%= f.label :"pet_genres" %></td>
+                        <td><%= f.select :pet_genres, [["犬", "犬"], ["猫", "猫"], ["ウサギ", "ウサギ"], ["亀","亀"],["鳥","鳥"],["ハムスター", "ハムスター"],["ハリネズミ","ハリネズミ"],["その他","その他"]] %></td>
+                    </tr>
             　　     <tr>
                 　　     <td><%= f.label :image %></td>
                 　　     <td><%= f.attachment_field :image %></td>
             　　     </tr>
+                    <tr>
+                　　    <td><%= f.label :transfer %></td>
+                　　    <td><%= f.check_box :transfer, {}, "want", "not" %>＊譲渡を募集する場合は<i class="far fa-check-circle"></i></td>
+            　　    </tr>
             　　     <tr>
                 　　    <td><%= f.label :body %></td>
                 　　    <td><%= f.text_area  :body %></td>
             　　    </tr>
-            　　    <tr>
-                　　  <td></td>
+                    <tr>
                 　　  <td><%= f.submit '投稿' %></td>
             　　    </tr>
         　　　　  </table>

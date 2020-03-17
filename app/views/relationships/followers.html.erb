@@ -11,14 +11,11 @@
 				<td><%= attachment_image_tag user, :Image, :fill, 60, 60, format: 'jpeg',fallback: "no_image.jpg", class: "img-circle pull-left profile-img" %></td>
 				<td><%= link_to "#{user.last_name}" + "#{user.first_name}", user_path(user.id) %></td>
 				<td><%= "フォロー数: #{user.follower.count}" %>/<%= "フォロワー数: #{user.followed.count}" %></td>
-				<td><% unless user == current_user %>
-                    	<% if current_user.following?(user) %>
-                        	<%= link_to 'フォロー解除', relationship_path(user.id), method: :DELETE, class:"btn btn-warning" %>
-                    	<% else %>
-                        	<%= link_to 'フォローする', relationships_path(user.id), method: :POST, class:"btn btn-warning" %>
-                    	<% end %>
-                	<% end %>
-            	</td>
+				<td>
+					<div id="user_<%= @user.id %>">
+						<%= render 'relationships/follow', user: user %>
+					</div>
+				</td>
 			</tr>
 	    <% end %>
 	</tbody>
