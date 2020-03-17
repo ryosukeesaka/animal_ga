@@ -25,15 +25,15 @@
       				</tr>
               <tr>
                 <th>follows</th>
-                <th><%= link_to " #{@user.follower.count}", follows_path(@user.id) %></th>
+                <th><%= link_to " #{@user.follower.count}" , follows_path(@user.id), id:"follower_#{@user.id}" %></th>
               </tr>
               <tr>
                 <th>followers</th>
-                <th><%= link_to "#{@user.followed.count}", followers_path(@user.id) %></th>
+                <th><%= link_to "#{@user.followed.count}", followers_path(@user.id), id:"followed_#{@user.id}" %></th>
               </tr>
               <!-------------------follow機能------------------->
               <tr>
-                <th><%= "フォロー数: #{@user.follower.count}" %><%= "フォロワー数: #{@user.followed.count}" %></th>
+                <th></th>
                     <% unless @user == current_user %>
                       <th>
                         <div id="user_<%= @user.id %>">
