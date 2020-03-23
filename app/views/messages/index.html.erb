@@ -1,0 +1,19 @@
+
+<h1 id="room_title">Chat room</h1>
+	<div class="container">
+		<div id="message_form">
+			<%= form_for(@message, url: user_messages_path(@user),remote: true) do |f| %>
+				<%= f.text_area  :content %>
+				<div id="new_message">
+					<%= f.submit "submit" %>
+				</div>
+			<% end %>
+		</div>
+
+	<div class="message_list">
+		<% @messages.each do |message| %>
+			<%= render partial: "message",locals: { message: message } %>
+		<% end %>
+	</div>
+</div>
+

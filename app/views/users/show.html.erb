@@ -25,7 +25,7 @@
       				</tr>
               <tr>
                 <th>follows</th>
-                <th><%= link_to " #{@user.follower.count}" , follows_path(@user.id), id:"follower_#{@user.id}" %></th>
+                <th><%= link_to " #{@user.follower.count}" , follows_path(@user.id), id:"follower_#{@user.id}" %></th><!--一意なidの指定-->
               </tr>
               <tr>
                 <th>followers</th>
@@ -33,7 +33,6 @@
               </tr>
               <!-------------------follow機能------------------->
               <tr>
-                <th></th>
                     <% unless @user == current_user %>
                       <th>
                         <div id="user_<%= @user.id %>">
@@ -50,6 +49,19 @@
     		  <% else %>
       			 <%=  link_to "", user_path(current_user.id), class: "col-xs-6 btn btn-default glyphicon glyphicon-wrench" %>
     		  <% end %>
+          <!----------chat room------------->
+          <% unless @user.id == current_user.id %>
+            <% if @is_room == true %>
+              <%= link_to 'chat room', room_path(@room_id),class: "far fa-envelope" %>
+            <% else %>
+              <%= form_for @room do |f| %>
+                <%= fields_for @entry do |e| %>
+                  <%= e.hidden_field :user_id, value: @user.id %>
+                <% end %>
+                <%= f.submit "chat room", class: "far fa-envelope"%>
+              <% end %>
+            <% end %>
+          <% end %>
 		  </div>
 	  </div>
   </div>

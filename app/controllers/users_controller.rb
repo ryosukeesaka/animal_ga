@@ -6,10 +6,28 @@ class UsersController < ApplicationController
         @post = Post.new
     end
 	def show
+
 		@user = User.with_deleted.find(params[:id])
         @users = User.with_deleted.all
-
-	end
+        @current_user_entry=Entry.where(user_id: current_user.id)#@current_user.entry何が違う？ _enry
+        @user_entry=Entry.where(user_id: @user.id)
+        unless @user.id == current_user.id
+            @current_user_entry.each do |cu|
+                @user_entry.each do |u|
+                    #roomが作成されている場合
+                    if cu.room_id == u.room_id then
+                        @is_room = true
+                        @room_id = cu.room_id#@room.idはだめ？
+                    end
+                end
+            end#roomを新しく作成する場合
+            if @isRoom
+            else
+                @room = Room.new
+                @entry = Entry.new
+            end
+        end
+    end
 
 	def create
 	end
@@ -46,8 +64,8 @@ class UsersController < ApplicationController
     end
 
     def destroy
-        user = User.find(params[:id]) #データ(レコード)を1件取得
-        user.destroy #データ（レコード）を削除
+        user = User.find(params[:id])
+        user.destroy
         redirect_to posts_path
     end
 

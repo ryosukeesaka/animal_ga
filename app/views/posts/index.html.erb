@@ -8,7 +8,7 @@
 <main class="clearfix">
     <!-----------------投稿一覧--------------->
     <section class="post" style="float:left;">
-         <h2 class="post-headline" style="border-bottom: 8px solid #c0c0c0; color:#808080; font-family: Chalkduster; ">Post index</h2>
+         <h2 class="post-headline">Post index</h2>
         <div class="post-box" style="padding-top:30px;">
             <div class="post-item clearfix">
                 <% @posts.each do |post| %>
@@ -58,7 +58,7 @@
                 　　     <td><%= f.label :image %></td>
                 　　     <td><%= f.attachment_field :image %></td>
             　　     </tr>
-                    <tr>
+                    <tr><!-----クリックされた場合、host familyページにも投稿が表示される。------>
                 　　    <td><%= f.label :transfer %></td>
                 　　    <td><%= f.check_box :transfer, {}, "want", "not" %>＊譲渡を募集する場合は<i class="far fa-check-circle"></i></td>
             　　    </tr>
@@ -70,6 +70,17 @@
                 　　  <td><%= f.submit '投稿' %></td>
             　　    </tr>
         　　　　  </table>
+                <% if @post.errors.any? %>
+                    <div id="error_explanation">
+                        <h2><%= @post.errors.count %> errors.messages.not_saved</h2>
+                        <ul>
+                            <% @post.errors.full_messages.each do |message| %>
+                                <li><%= message %></li>
+                            <% end %>
+                        </ul>
+                    </div>
+                <% end %>
+
     　　     <% end %>
 　　　　  </div>
     </div>
