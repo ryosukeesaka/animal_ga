@@ -9,10 +9,10 @@
 		<% @user.followed_user.each do |user| %>
 			<tr>
 				<td><%= attachment_image_tag user, :Image, :fill, 60, 60, format: 'jpeg',fallback: "no_image.jpg", class: "img-circle pull-left profile-img" %></td>
-				<td><%= link_to "#{user.last_name}" + "#{user.first_name}", user_path(user.id) %></td>
-				<td><%= "フォロー数: #{user.follower.count}" %>/<%= "フォロワー数: #{user.followed.count}" %></td>
+				<td><%= link_to user.last_name + user.first_name, user_path(user.id) %></td>
+				<td>フォロー数: <span id="follower_<%= user.id %>"><%= user.follower.count %></span>/フォロワー数: <span id="followed_<%= user.id %>">%= user.followed.count %></span></td>
 				<td>
-					<div id="user_<%= @user.id %>">
+					<div id="user_<%= user.id %>">
 						<%= render 'relationships/follow', user: user %>
 					</div>
 				</td>

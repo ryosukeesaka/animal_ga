@@ -1,1 +1,2 @@
-$(".message_list").append("<%= j(render 'messages/message',message: @message) %>")
+console.log('xxxxx');
+$(".message_container[data-id=<%= @message.id %>]").remove()//属性を組み込む場合の処理　削除場所にも注意

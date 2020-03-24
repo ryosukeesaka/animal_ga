@@ -10,4 +10,9 @@
 	<div id="message_date">
 		<%= message.created_at.strftime('%Y.%m.%d') %>
 	</div>
+	<% if message.user_id == current_user.id %>
+		<div id="message_delete">
+			<%= link_to "削除",message_path(message.id),remote: true, method: :delete %>
+		</div>
+	<% end %>
 </div>

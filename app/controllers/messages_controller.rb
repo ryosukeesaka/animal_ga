@@ -12,7 +12,7 @@ class MessagesController < ApplicationController
     	#if @message.save
          #render 'create.js.erb'
     	#end
-      if Entry.where(user_id: current_user.id, room_id: params[:message][:room_id]).present?
+      if Entry.where(user_id: current_user.id, room_id: params[:message][:room_id]).present? #message=message.show form for @message?room_idにmessage? room cのmargeも
         @message = Message.create(params.require(:message).permit(:user_id, :content, :room_id).merge(user_id: current_user.id))
       else
         flash[:alert] = "メッセージ送信に失敗しました。"
@@ -20,14 +20,15 @@ class MessagesController < ApplicationController
     end
 
   	def destroy
-  		message = Message.find(params[:id])
-      message.user_id = current_user.id
-  		message.destroy
+  		@message = Message.find(params[:id])
+      @message.user_id = current_user.id
+  		@message.destroy
+
   	end
 
   	private
 	  def message_params
-		  params.require(:message).permit(:content)
+		  params.require(:message).permit(:content,:user_id,:room_id)
 	  end
 
 end

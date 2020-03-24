@@ -7,6 +7,9 @@ class RelationshipsController < ApplicationController
         #user.rbのdefでfollowを定義
         #redirect_to user_path(params[:id])
         #end
+        respond_to do |format|
+            format.js
+        end
     end
 
     def  destroy

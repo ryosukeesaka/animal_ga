@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 	def show
 
 		@user = User.with_deleted.find(params[:id])
-        @users = User.with_deleted.all
+        @users = User.with_deleted.all.order(created_at: :desc)
         @current_user_entry=Entry.where(user_id: current_user.id)#@current_user.entry何が違う？ _enry
         @user_entry=Entry.where(user_id: @user.id)
         unless @user.id == current_user.id

@@ -3,7 +3,7 @@ class PostsController < ApplicationController
     before_action :correct_user, only: [:edit, :update, :destroy]
 
 	def index
-        @posts = Post.all
+        @posts = Post.all.order(created_at: :desc)
         @post = Post.new
         @post_comment = PostComment.new
 
@@ -12,18 +12,14 @@ class PostsController < ApplicationController
     def create
         @post = Post.new(post_params)
         @post.user_id = current_user.id
-        if  @post.save!
+        if  @post.save
             redirect_to posts_path
             flash[:create] = "Successful submission!!"
         else
-            redirect_to posts_path
-            flash[:failed] = "Failed to save the post"
+            render action: :index #エラー文出すにはリダイレクトさせてはいけない。
         end
     end
 
-    def show
-        @post = Post.find(params[:id])
-    end
 
     def update
          @post = Post.find(params[:id])
@@ -40,7 +36,7 @@ class PostsController < ApplicationController
     end
 
     def transfer
-        @posts = Post.where(transfer: true)
+        @posts = Post.where(transfer: true).order(created_at: :desc)
         @post_comment = PostComment.new
     end
 
