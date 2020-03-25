@@ -1,7 +1,8 @@
 # README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
+/Users/esakaryosuke/Desktop/スクリーンショット 2020-03-26 5.06.06.png
+"animal gram"  
+in animal gram, post and browse animal images 
+also can recruit animal foster parents
 
 Things you may want to cover:
 
