@@ -1,11 +1,13 @@
 # README
 /Users/esakaryosuke/Desktop/スクリーンショット 2020-03-26 5.06.06.png
-"animal gram"  
-in animal gram, post and browse animal images 
+
+#"animal gram"  
+
+##Descriptionin 
+animal gram, post and browse animal pictutres 
 also can recruit animal foster parents
 
-Things you may want to cover:
-
+***DEMO:***
 * Ruby version
 
 * System dependencies
