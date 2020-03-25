@@ -8,6 +8,7 @@ In this site,you can post photos of animals so they can be seen by people around
 In this site, you can recruit animals for foster parents and chat with other users
 
 ***DEMO:***
+/Users/esakaryosuke/Desktop/animal_gram_demo.gif
 * Ruby version
 
 * System dependencies
