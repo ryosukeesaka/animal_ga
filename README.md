@@ -1,11 +1,11 @@
 # README
 /Users/esakaryosuke/Desktop/スクリーンショット 2020-03-26 5.06.06.png
 
-#"animal gram"  
+#"animal gram" 
+In this site,you can post photos of animals so they can be seen by people around the world  
 
 ##Descriptionin 
-animal gram, post and browse animal pictutres 
-also can recruit animal foster parents
+In this site, you can recruit animals for foster parents and chat with other users
 
 ***DEMO:***
 * Ruby version
