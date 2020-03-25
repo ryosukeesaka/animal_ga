@@ -12,11 +12,14 @@ class PostsController < ApplicationController
     def create
         @post = Post.new(post_params)
         @post.user_id = current_user.id
+        @posts = Post.all.order(created_at: :desc)
+        @post_comment = PostComment.new
+
         if  @post.save
             redirect_to posts_path
             flash[:create] = "Successful submission!!"
         else
-            render action: :index #エラー文出すにはリダイレクトさせてはいけない。
+            render "index" #失敗した場合
         end
     end
 
@@ -27,7 +30,7 @@ class PostsController < ApplicationController
         redirect_to user_path(current_user)
         flash[:notice] ="Successfully update!!"
         else
-        render action: :edit
+        render "edit"
         end
     end
 

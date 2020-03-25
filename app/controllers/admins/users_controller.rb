@@ -13,7 +13,7 @@ class Admins::UsersController < ApplicationController
   	end
 
   	def update
-  		@user = User.find(params[:id])
+  		@user = User.with_deleted.find(params[:id])
         if  params[:user_status] == "2" && @user.deleted_at.blank?
             @user.destroy!
         elsif params[:user_status] == "1" && @user.deleted_at.present?

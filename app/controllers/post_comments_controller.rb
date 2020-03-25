@@ -8,7 +8,6 @@ class PostCommentsController < ApplicationController
 		                          user_id: current_user.id)
 		@post = Post.find(params[:post_id])
 		@post_comment = PostComment.new
-
 		comment.save!
 
 	end

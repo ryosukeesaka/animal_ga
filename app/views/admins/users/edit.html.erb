@@ -1,6 +1,6 @@
 <div class="profbox">
   <h5 style="margin: 30px;  padding-top: 30px">会員</h5>
-      <%= form_for(@user) do |f| %>
+      <%= form_for(@user, url: admins_user_path(@user.id)) do |f| %>
         <table style="width:50%; margin-left:10px;" class="table table-condensed" cellspacing="0" cellpadding="5" >
           <tr>
             <td style="background: rgba(0,0,0,0.1);" style="border-style: none;">prof img</td>

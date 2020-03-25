@@ -1,10 +1,10 @@
 class Post < ApplicationRecord
 	belongs_to :user
 	attachment :image
-	validates :image, presence: true
-  validates :pet_age, presence: true
-  validates :pet_genres, presence: true
-  validates :pet_name, presence: true
+	validates :image, presence:true
+  validates :pet_age, presence:true
+  validates :pet_genres, presence:true
+  validates :pet_name, presence:true
   validates :body, length: { in: 1..300 }
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
