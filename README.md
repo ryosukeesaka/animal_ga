@@ -1,10 +1,14 @@
 # README
+/Users/esakaryosuke/Desktop/スクリーンショット 2020-03-26 5.06.06.png
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#"animal gram" 
+In this site,you can post photos of animals so they can be seen by people around the world  
 
-Things you may want to cover:
+##Descriptionin 
+In this site, you can recruit animals for foster parents and chat with other users
 
+***DEMO:***
+(https://github.com/ryosukeesaka/animal_gram/app/gif/animal_gram_demo.gif)
 * Ruby version
 
 * System dependencies
