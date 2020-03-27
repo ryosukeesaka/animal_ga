@@ -1,28 +1,36 @@
 # README
-/Users/esakaryosuke/Desktop/スクリーンショット 2020-03-26 5.06.06.png
+![スクリーンショット 2020-03-26 5 06 06](https://user-images.githubusercontent.com/58371270/77803759-42352680-70c1-11ea-9efa-8223c8be973c.png)
 
-#"animal gram" 
+
+##"animal gram"
 In this site,you can post photos of animals so they can be seen by people around the world  
 
-##Descriptionin 
+##Descriptionin
 In this site, you can recruit animals for foster parents and chat with other users
 
 ***DEMO:***
 (https://github.com/ryosukeesaka/animal_gram/app/gif/animal_gram_demo.gif)
-* Ruby version
 
-* System dependencies
+## Requirement
+ hrails', '~> 5.2.4', '>= 5.2.4.1'
+ ruby '2.5.7'
 
-* Configuration
 
-* Database creation
+## Installation
+Requirementで列挙したライブラリなどのインストール方法を説明する
 
-* Database initialization
 
-* How to run the test suite
+## Usage
 
-* Services (job queues, cache servers, search engines, etc.)
+DEMOの実行方法など、"hoge"の基本的な使い方を説明する
 
-* Deployment instructions
+## Deploy
 
-* ...
+
+## Note
+
+注意点などがあれば書く
+
+## Author
+ryosuke esaka
+ryokexexex4515@gmail.com
