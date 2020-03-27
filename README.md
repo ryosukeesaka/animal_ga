@@ -9,7 +9,7 @@ In this site,you can post photos of animals so they can be seen by people around
 In this site, you can recruit animals for foster parents and chat with other users
 
 ***DEMO:***
-![animal_gram_demo2](https://user-images.githubusercontent.com/58371270/77804329-9ab8f380-70c2-11ea-9057-2d8c0eed9261.gif)
+![animal_glam#gif](https://user-images.githubusercontent.com/58371270/77804553-2f235600-70c3-11ea-9bf9-4bafab3db75c.gif)
 
 ## Requirement
  hrails', '~> 5.2.4', '>= 5.2.4.1'
