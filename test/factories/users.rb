@@ -5,7 +5,7 @@ FactoryBot.define do
    		last_name_kana		  {"タロウ"}
    		first_name_kana       {"ヤマダ"}
    		prefectures           {"滋賀県"}
-   		Image                 {""}
+   		Image.id                {"00000"}
    		phone_number          {"11111111111"}
 
    		email                 {"b@b"}
