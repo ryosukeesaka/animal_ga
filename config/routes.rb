@@ -14,11 +14,14 @@ Rails.application.routes.draw do
   get "users/:id/followers" => "relationships#followers", as: "followers"
   get "users/:id/edit/withdraw" => "users#withdraw", as: "withdraw"
   get "search" => "users#search", as: "search"
+  get "transfer" => "users#transfer", as: "transfer"
     namespace :admins do
      resources :users, only: [:index, :show, :update, :edit]
    end
     resources :relationships, only: [:destroy]
-  	resources :users, only: [:index, :show, :edit, :update, :creates, :destroy]
+    resources :messages, only: [:create, :destroy]
+    resources :rooms, only: [:create,:show]
+    resources :users, only: [:index, :show, :edit, :update, :creates, :destroy]
   	resources :posts, only: [:index, :create, :show, :update, :edit, :destroy] do
   	  resource :post_comments, only: [:create, :destroy]
   	  resource  :favorites, only: [:create, :destroy]

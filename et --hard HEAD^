@@ -1,0 +1,218 @@
+[33mcommit 54d2452998396674ab156e0e142ad42af60a8eba[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: ryosukeesaka <ryokexexex4515@gmail.com>
+Date:   Sat Mar 28 07:58:50 2020 +0000
+
+    [add]css追加
+
+[33mcommit c7ab8770d9ac6188e1ba5b716045b5dd3ebd3c6c[m
+Author: ryosukeesaka <ryokexexex4515@gmail.com>
+Date:   Sat Mar 28 06:56:48 2020 +0000
+
+    [fixed]管理者機能
+
+[33mcommit 5330e7fd60270280f35095ecee1319d0aff264f3[m
+Author: ryosukeesaka <ryokexexex4515@gmail.com>
+Date:   Sat Mar 28 06:52:44 2020 +0000
+
+    [fixed]管理者機能
+
+[33mcommit 597d8b218fefcdec2e832075a2181e6e86217d16[m
+Author: ryosukeesaka <ryokexexex4515@gmail.com>
+Date:   Fri Mar 27 22:13:47 2020 +0000
+
+     [fixed]gif追加
+
+[33mcommit 2614a2101471d9e6636f5b1929c25d0ec59b619d[m
+Author: ryosukeesaka <ryokexexex4515@gmail.com>
+Date:   Fri Mar 27 22:09:14 2020 +0000
+
+     [fixed]gif追加
+
+[33mcommit d078b2c2346304e6bfa4348ca28899e47f0359f7[m
+Author: ryosukeesaka <ryokexexex4515@gmail.com>
+Date:   Fri Mar 27 21:57:57 2020 +0000
+
+     [fixed]gif追加
+
+[33mcommit 5c284ec6490befaa13ce043fda8e59a576452896[m
+Author: ryosukeesaka <ryokexexex4515@gmail.com>
+Date:   Fri Mar 27 21:53:26 2020 +0000
+
+     [fixed]gif追加
+
+[33mcommit 3f159514649dcafc1a33d54ac5413609202958ef[m
+Author: ryosukeesaka <ryokexexex4515@gmail.com>
+Date:   Fri Mar 27 21:49:23 2020 +0000
+
+     [fixed]gif追加
+
+[33mcommit c57fbafbdd641a12870f080e0eef5206e4e8e343[m
+Author: ryosukeesaka <ryokexexex4515@gmail.com>
+Date:   Fri Mar 27 21:45:54 2020 +0000
+
+     [fixed]画像追加
+
+[33mcommit 8c4366b4956993741ddaf7053bc43aff200a85cb[m
+Author: ryosukeesaka <ryokexexex4515@gmail.com>
+Date:   Fri Mar 27 08:12:27 2020 +0000
+
+     [fixed]テストフォルダ
+
+[33mcommit 9c820ef55f2aba0636df708c425cb593651dd265[m
+Author: ryosukeesaka <ryokexexex4515@gmail.com>
+Date:   Fri Mar 27 08:09:33 2020 +0000
+
+    [fixed]rspecのsystemフォルダ
+
+[33mcommit f9de9e3f62b4e4be89d4b578c6bb1c641a5990ee[m
+Author: ryosukeesaka <ryokexexex4515@gmail.com>
+Date:   Fri Mar 27 01:15:57 2020 +0000
+
+    [add]rspec
+
+[33mcommit bca67318d0c6c7bb3f20167be72fe9f6475d5448[m
+Author: ryosukeesaka <ryokexexex4515@gmail.com>
+Date:   Thu Mar 26 14:05:26 2020 +0000
+
+    deploy setting
+
+[33mcommit 65cf3d8749082c44b703955877705af61ec91dee[m
+Merge: be2bf6a f8a89d9
+Author: ryosukeesaka <ryokexexex4515@gmail.com>
+Date:   Thu Mar 26 12:07:54 2020 +0000
+
+    Merge branch 'master' of github.com:ryosukeesaka/animal_gram
+
+[33mcommit f8a89d9232a2673675363d272705a7e047c834e7[m
+Author: ryosukeesaka <58371270+ryosukeesaka@users.noreply.github.com>
+Date:   Thu Mar 26 07:47:01 2020 +0900
+
+    Update README.md
+
+[33mcommit 85063f4b24d17f9dab6777fada917359ec9526f6[m
+Author: ryosukeesaka <58371270+ryosukeesaka@users.noreply.github.com>
+Date:   Thu Mar 26 07:45:44 2020 +0900
+
+    Update README.md
+    
+    add demo
+
+[33mcommit ba1ab671d99fb6a386183cbc4f4863dbb7284bab[m
+Author: ryosukeesaka <58371270+ryosukeesaka@users.noreply.github.com>
+Date:   Thu Mar 26 07:45:25 2020 +0900
+
+    Update README.md
+
+[33mcommit be2bf6aab2ebd48bdb0801cbda5aefce23032e43[m
+Author: ryosukeesaka <ryokexexex4515@gmail.com>
+Date:   Wed Mar 25 22:44:23 2020 +0000
+
+    [add]gif file
+
+[33mcommit c5d144b5d674d9805d718971ae535abacd128959[m
+Author: ryosukeesaka <58371270+ryosukeesaka@users.noreply.github.com>
+Date:   Thu Mar 26 07:30:42 2020 +0900
+
+    Update README.md
+    
+    /Users/esakaryosuke/Desktop/animal_gram_demo.gif
+
+[33mcommit 36d8caf663707174ef372fc5136654fc2e31244e[m
+Author: ryosukeesaka <58371270+ryosukeesaka@users.noreply.github.com>
+Date:   Thu Mar 26 07:28:33 2020 +0900
+
+    Update README.md
+    
+    /Users/esakaryosuke/Desktop/animal_gram_demo.gif
+
+[33mcommit 054bcdb3d48db3f1d24f3d5967264ac4d525d244[m
+Author: ryosukeesaka <58371270+ryosukeesaka@users.noreply.github.com>
+Date:   Thu Mar 26 06:44:26 2020 +0900
+
+    Update README.md
+
+[33mcommit 556e302a02a59db6794c79240feaec6d3f1f5bfa[m
+Author: ryosukeesaka <58371270+ryosukeesaka@users.noreply.github.com>
+Date:   Thu Mar 26 05:19:31 2020 +0900
+
+    Update README.md
+    
+    /Users/esakaryosuke/Desktop/スクリーンショット 2020-03-26 5.06.06.png
+
+[33mcommit 995205e84f44bcf36d6b699f648ea5e71c91af28[m
+Author: ryosukeesaka <ryokexexex4515@gmail.com>
+Date:   Wed Mar 25 17:54:34 2020 +0000
+
+    [fixed]チャット機能の修正
+
+[33mcommit eacaa9777e23308e83cd524e924abc24c8053a38[m
+Author: ryosukeesaka <ryokexexex4515@gmail.com>
+Date:   Wed Mar 25 16:42:39 2020 +0000
+
+    [fixed]管理者のユーザー編集機能
+
+[33mcommit 533033f62f10574844a905908897a2e24b11bbb5[m
+Author: ryosukeesaka <ryokexexex4515@gmail.com>
+Date:   Tue Mar 24 14:47:41 2020 +0000
+
+    [fixed]チャットメッセージ削除機能
+
+[33mcommit 81768d51e0b828c642937d0fc7c2b702b65f2ca4[m
+Author: ryosukeesaka <ryokexexex4515@gmail.com>
+Date:   Mon Mar 23 15:55:11 2020 +0000
+
+    [add] チャット機能
+
+[33mcommit 9ea342df15f50c8edeedc5c74843b4f2c2ca5fdc[m
+Author: ryosukeesaka <ryokexexex4515@gmail.com>
+Date:   Tue Mar 17 11:26:57 2020 +0000
+
+    [fixed]フォロー機能
+
+[33mcommit e4d245a0fa2711c1f50d9a54e2b5b4d70d33fd4a[m
+Author: ryosukeesaka <ryokexexex4515@gmail.com>
+Date:   Tue Mar 17 10:50:59 2020 +0000
+
+    [add]transferカラム,follow機能（ajax)
+
+[33mcommit 1f2b7721c0214f54a3a81ea5287535793b680996[m
+Author: ryosukeesaka <ryokexexex4515@gmail.com>
+Date:   Sun Mar 15 16:55:29 2020 +0000
+
+    [add]管理者投稿削除機能
+
+[33mcommit fb1cdc5d248ab0a414ca8184dcc0cf64e45deb34[m
+Author: ryosukeesaka <ryokexexex4515@gmail.com>
+Date:   Sun Mar 15 12:54:14 2020 +0000
+
+    [fixed]コメント機能を非同期に
+
+[33mcommit 3052237964322bbbfa3d68a8ba34fd53c4687390[m
+Author: ryosukeesaka <ryokexexex4515@gmail.com>
+Date:   Sun Mar 15 08:49:36 2020 +0000
+
+    [add]会員退会機能
+
+[33mcommit 1e36193d9ac66dc364e436065bdb9de65ef3d5ae[m
+Author: ryosukeesaka <ryokexexex4515@gmail.com>
+Date:   Sat Mar 14 08:27:11 2020 +0000
+
+    [add]非同期いいね機能
+
+[33mcommit e2510dfe4f48ff7fe92f27ba6d916fb7d23f49ac[m
+Author: ryosukeesaka <ryokexexex4515@gmail.com>
+Date:   Sat Mar 14 06:25:56 2020 +0000
+
+    [add]検索機能
+
+[33mcommit 8ff4ac2411cb5e114b70a3202e05484b770cc62f[m
+Author: ryosukeesaka <ryokexexex4515@gmail.com>
+Date:   Thu Mar 12 16:49:39 2020 +0000
+
+    Add namespace to manage user
+
+[33mcommit 2ba94794b3e8e7e58d0736220950d580e9dcb576[m
+Author: ryosukeesaka <ryokexexex4515@gmail.com>
+Date:   Wed Mar 11 07:41:48 2020 +0000
+
+    first commit
