@@ -13,6 +13,8 @@
   </div>
 <% end %>
 
+<p><%= flash[:alert] %></p>
+
 <h4 style="margin:30px; border-bottom: 8px solid #e6e6fa; color:#a9a9a9; font-family: Chalkduster;">Edit</h4>
         <div class="container" >
             <%= form_for(@post) do |f| %>
@@ -26,8 +28,8 @@
                         <td><%= f.select :pet_age, Post.pet_ages.keys, {prompt: '選択してください'}, class: 'form-control  btn-default' ,style:"width:150px" %></td>
             　　     </tr>
             　　     <tr>
-                　　     <td><%= f.label :genre %></td>
-                　　     <td><%= f.select :pet_genre, Post.pet_genres.keys, {prompt: '選択してください'}, class: 'form-control  btn-default' ,style:"        width:150px" %></td>
+                　　     <td><%= f.label :pet_genres %></td>
+                　　     <td><%= f.select :pet_genres,  [["犬", "犬"], ["猫", "猫"], ["ウサギ", "ウサギ"], ["亀","亀"],["鳥","鳥"],["ハムスター", "ハムスター"],["ハリネズミ","ハリネズミ"],["その他","その他"]], class: 'form-control  btn-default' ,style:"        width:150px" %></td>
             　　     </tr>
             　　     <tr>
                 　　     <td><%= f.label :image %></td>

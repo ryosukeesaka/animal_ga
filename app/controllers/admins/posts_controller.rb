@@ -10,6 +10,7 @@ class Admins::PostsController < ApplicationController
 		if post.destroy
 		redirect_to admins_posts_path
 		flash[:destroy] = "destroy successfully!!"
+		end
 
 	end
 end

@@ -13,8 +13,8 @@ class Admins::UsersController < ApplicationController
   	end
 
   	def update
-  		@user = User.with_deleted.find(params[:id])
-        if  params[:user_status] == "2" && @user.deleted_at.blank?
+  		@user = User.with_deleted.find(params[:id])#ユーザーの論理削除機能
+        if  params[:user_status] == "2" && @user.deleted_at.blank?#退会ボタンが押されるかつユーザーのdeleted.atが存在しない場合
             @user.destroy!
         elsif params[:user_status] == "1" && @user.deleted_at.present?
                 @user.restore!

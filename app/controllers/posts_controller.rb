@@ -31,6 +31,7 @@ class PostsController < ApplicationController
         flash[:notice] ="Successfully update!!"
         else
         render "edit"
+        flash[:alert] = "編集に失敗しました。"
         end
     end
 
