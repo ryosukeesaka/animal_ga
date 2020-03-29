@@ -1,2 +1,2 @@
 $("#post_comments_<%= @post.id %>").html("<%= j(render 'posts/post_comment', post: @post, post_comment: @post_comment) %>")//indexにdiv作る理由？？？？
-$("text_area").val('')//テキストの中身をからにする
+$("textarea").val('')//テキストの中身をからにする
