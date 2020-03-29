@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get "users/:id/followers" => "relationships#followers", as: "followers"
   get "users/:id/edit/withdraw" => "users#withdraw", as: "withdraw"
   get "search" => "users#search", as: "search"
-  get "transfer" => "users#transfer", as: "transfer"
+  get "transfer" => "posts#transfer", as: "transfer"
     namespace :admins do
      resources :users, only: [:index, :show, :update, :edit]
    end
