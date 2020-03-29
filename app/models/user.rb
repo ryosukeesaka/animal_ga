@@ -10,7 +10,7 @@ class User < ApplicationRecord
     validates :first_name, presence: true
     validates :first_name_kana, presence: true
     validates :Image, presence: true
-    validates :prefecture, presence: true
+    validates :prefectures, presence: true
     validates :phone_number, presence: true
 
 
