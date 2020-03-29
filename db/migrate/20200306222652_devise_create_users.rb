@@ -38,7 +38,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :first_name_kana
       t.text :introduction
       t.string :phone_number
-      t.integer :prefecture,    null: false, default: "0"
       t.timestamps null: false
     end
 
