@@ -23,13 +23,9 @@
                         <th><%= user.prefectures %></th>
                         <th><%= "フォロー数: #{user.follower.count}" %><%= "フォロワー数: #{user.followed.count}" %></th>
                         <th>
-                            <% unless user == current_user %>
-                            <% if current_user.following?(user) %>
-                                <%= link_to 'フォロー解除', relationship_path(user.id), method: :DELETE, class:"btn btn-success" %>
-                            <% else %>
-                                <%= link_to 'フォローする', relationships_path(user.id), method: :post, class:"btn btn-danger" %>
-                            <% end %>
-                            <% end %>
+                            <div id="user_<%= user.id %>">
+                                <%= render 'relationships/follow', user: user %>
+                            </div>
                         </th>
                     </tr>
                 <% end %>
