@@ -12,8 +12,8 @@ class MessagesController < ApplicationController
     	#if @message.save
          #render 'create.js.erb'
     	#end
-      if Entry.where(user_id: current_user.id, room_id: params[:message][:room_id]).present? #message=message.show form for @message?room_idにmessage? room cのmargeも
-        @message = Message.create(params.require(:message).permit(:user_id, :content, :room_id).merge(user_id: current_user.id))
+      if Entry.where(user_id: current_user.id, room_id: params[:message][:room_id]).present?
+        @message = Message.create(message_params.merge(user_id: current_user.id))#hidden fieldで@messageの中にroom_idを入れてパラメーターを送っている
       else
         flash[:alert] = "メッセージ送信に失敗しました。"
       end
@@ -28,7 +28,7 @@ class MessagesController < ApplicationController
 
   	private
 	  def message_params
-		  params.require(:message).permit(:content,:user_id,:room_id)
+		  params.require(:message).permit(:content,:room_id)
 	  end
 
 end
