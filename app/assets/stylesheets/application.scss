@@ -33,7 +33,7 @@ clearfix::after {
 
 
 .profbox{
-	background: image-url('new.jpg');
+	background-image: image-url('new.jpg');
 	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -162,7 +162,7 @@ i {
 #mv {
     width: 100%;
     height: 400px;
-    background: image-url('pet4.jpg');
+    background-image: image-url('pet4.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -180,7 +180,7 @@ i {
 .main-visual {
   width: 100%;
   height: 300px;
-  background: image-url('head.jpg');
+  background-image: image-url('head.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -256,38 +256,38 @@ background: image-url('image5.jpg');
   margin-right: 0;
 }
 .box:nth-child(1){
- background: image-url('pet3.jpg');
+ background-image: image-url('pet3.jpg');
     background-size: cover;
     background-position: center;
 }
 .box:nth-child(2){
-  background: image-url('pet7.jpg');
+  background-image: image-url('pet7.jpg');
     background-size: cover;
     background-position: center;
 }
 .box:nth-child(3){
-  background: image-url('dog2.jpg');
+  background-image: image-url('dog2.jpg');
     background-size: cover;
     background-position: center;
 }
 .box:nth-child(4){
-  background: image-url('pet8.jpg');
+  background-image: image-url('pet8.jpg');
     background-size: cover;
     background-position: center;
 }
 .box:nth-child(5){
-  background: image-url('pet1.jpg');
+  background-image: image-url('pet1.jpg');
     background-size: cover;
     background-position: center;
 }
 
 .box:nth-child(8){
-  background: image-url('pet2.jpg');
+  background-image: image-url('pet2.jpg');
     background-size: cover;
     background-position: center;
 }
 .box:nth-child(9){
-  background: image-url('pet6.jpg');
+  background-image: image-url('pet6.jpg');
     background-size: cover;
     background-position: center;
 }
