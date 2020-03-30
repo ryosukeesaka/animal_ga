@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   get "transfer" => "posts#transfer", as: "transfer"
     namespace :admins do
      resources :users, only: [:index, :show, :update, :edit]
+     resources :posts, only: [:index, :destroy]
+
    end
     resources :relationships, only: [:destroy]
     resources :messages, only: [:create, :destroy]
