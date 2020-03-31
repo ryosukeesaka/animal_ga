@@ -27,7 +27,7 @@
 ・不適切な投稿の削除機能。<br>
 
 ***DEMO:***  
-![demo](https://user-images.githubusercontent.com/58371270/77805530-73175a80-70c5-11ea-9d3a-351eb08b0ebd.gif)
+![animalgram](https://user-images.githubusercontent.com/58371270/78085821-023eae00-73f7-11ea-8649-ba6082950aef.gif)
 
 
 ## 使用技術及びインフラ  
