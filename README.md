@@ -24,7 +24,8 @@
 ・ユーザーのアカウントban機能。paranoiaによる論理削除を使用しております。
 ・不適切な投稿の削除機能。
 
-***DEMO:***
+***DEMO:***  
+
 ![demo](https://user-images.githubusercontent.com/58371270/77805530-73175a80-70c5-11ea-9d3a-351eb08b0ebd.gif)
 
 
