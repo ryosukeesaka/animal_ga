@@ -5,9 +5,9 @@ class UsersController < ApplicationController
     def index
         @post = Post.new
     end
-	def show
 
-		@user = User.with_deleted.find(params[:id])
+    def show
+        @user = User.with_deleted.find(params[:id])
         @users = User.with_deleted.all.order(created_at: :desc)
         @current_user_entry=Entry.where(user_id: current_user.id)
         @user_entry=Entry.where(user_id: @user.id)
@@ -21,8 +21,7 @@ class UsersController < ApplicationController
                     end
                 end
             end#roomを新しく作成する場合
-            if @isRoom
-            else
+            unless @is_room
                 @room = Room.new
                 @entry = Entry.new
             end
