@@ -1,30 +1,30 @@
 <div class= "post-comment">
         <%= form_for [post, post_comment],remote: true do |f| %>
-            <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "comment..",style:"width:300px;" %>
-            <%= f.submit "submit", class: "btn btn-default  pull-right",style:"font-size: 10px; margin-top: 5px;" %>
+            <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメント..",style:"width:300px;" %>
+            <%= f.submit "送信", class: "btn btn-default  pull-right",style:"font-size: 10px; margin-top: 5px;" %>
         <% end %>
-    </div>
-    <h2 class="comment-count" style="font-size: 15px;"><%= post.post_comments.count %>comments</h2>
-        <ul style="list-style: none; margin-bottom: 10px;">
-            <!-----postモデルに紐づいたpost_commentsモデル------>
-            <% post.post_comments.each do |post_comment| %>
-                <li class="comment" style="list-style: none;">
-                    <div class="comment-text" style="margin-bottom: 10px;">
-                        <div class="comment-author">
-                            <div class="comment-user-img">
-                            <%= attachment_image_tag post_comment.user, :Image, :fill, 40, 40, format: 'jpeg',fallback: "no_image.jpg", class: "img-circle pull-left profile-img" %></div>
-                            <div class="link-author"><%= link_to "#{post_comment.user.last_name}" + "#{post_comment.user.first_name}", user_path(post_comment.user.id) %></div>
-                            <div class="comment-body">
-                                <span class="content"><%= post_comment.comment %></span>
-                            </div>
-                            <div class="comment-entry" style="margin-bottom: 10px; font-size:13px;" ><%= post_comment.created_at.strftime('%Y/%m/%d') %></div>
-                                <% if post_comment.user_id == current_user.id %>
-                                    <div class="destroy-link">
-                                        <%= link_to "destroy", post_post_comment_path(post, post_comment),remote: true, method: :delete %>
-                                    </div>
-                                <% end %>
+    <h2 class="comment-count" style="font-size: 15px;"><%= post.post_comments.count %>コメント</h2>
+    <ul style="list-style: none; margin-bottom: 10px;">
+        <!-----postモデルに紐づいたpost_commentsモデル------>
+        <% post.post_comments.each do |post_comment| %>
+            <li class="comment" style="list-style: none;">
+                <div class="comment-text" style="margin-bottom: 10px;">
+                    <div class="comment-author">
+                        <div class="comment-user-img">
+                        <%= attachment_image_tag post_comment.user, :Image, :fill, 40, 40, format: 'jpeg',fallback: "no_image.jpg", class: "img-circle pull-left profile-img" %></div>
+                        <div class="link-author"><%= link_to "#{post_comment.user.last_name}" + "#{post_comment.user.first_name}", user_path(post_comment.user.id) %></div>
+                        <div class="comment-body">
+                            <span class="content"><%= post_comment.comment %></span>
                         </div>
+                        <div class="comment-entry" style="margin-bottom: 10px; font-size:13px;" ><%= post_comment.created_at.strftime('%Y/%m/%d') %></div>
+                        <% if post_comment.user_id == current_user.id %>
+                            <div class="destroy-link">
+                                <%= link_to "削除", post_post_comment_path(post, post_comment),remote: true, method: :delete %>
+                            </div>
+                        <% end %>
                     </div>
-                </li>
-            <% end %>
-        </ul>
+                </div>
+            </li>
+        <% end %>
+    </ul>
+</div>

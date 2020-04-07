@@ -21,7 +21,7 @@ class Admins::UsersController < ApplicationController
         end
         if @user.update(user_params)
             redirect_to admins_users_path
-            flash[:update] = "You have updated user successfully!!"
+            flash[:update] = "ユーザーの更新に成功しました"
         else
         	render action: :edit
         end

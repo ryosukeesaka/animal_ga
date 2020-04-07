@@ -7,28 +7,28 @@
   <div class="container" style="margin-top: 100px;">
   	<div class="row">
     	<div class="col-9">
-        	<h2 style="border-bottom: 8px solid #c0c0c0; color:#808080; font-family: Chalkduster; ">User info</h2>
+        	<h2 style="border-bottom: 8px solid #c0c0c0; color:#808080; font-family: Chalkduster; ">ユーザー情報</h2>
         	<%= attachment_image_tag @user, :Image, :fill, 80, 80, format: 'jpeg',fallback: "no_image.jpg", class: "img-circle pull-left profile-img" %>
         	<table class="table">
            	<tbody>
       				<tr>
-        				<th>name</th>
+        				<th>名前</th>
         				<th><%= "#{@user.last_name}" + "#{@user.first_name}" %></th>
       				</tr>
       				<tr>
-        				<th>introduction</th>
+        				<th>自己紹介</th>
         				<th><%= @user.introduction %></th>
       				</tr>
       				<tr>
-      			    <th>prefectures</th>
+      			    <th>住所</th>
       				<th><%= @user.prefectures %></th>
       				</tr>
               <tr>
-                <th>follows</th>
+                <th>フォロー</th>
                 <th><%= link_to " #{@user.follower.count}" , follows_path(@user.id), id:"follower_#{@user.id}" %></th><!--一意なidの指定-->
               </tr>
               <tr>
-                <th>followers</th>
+                <th>フォロワー</th>
                 <th><%= link_to "#{@user.followed.count}", followers_path(@user.id), id:"followed_#{@user.id}" %></th>
               </tr>
               <!-------------------follow機能------------------->
@@ -45,20 +45,20 @@
             </tbody>
   			  </table>
           <% if @user == current_user %>
-      			 <%= link_to "edit", edit_user_path(@user.id), class: "btn btn-primary" %>
+      			 <%= link_to "編集", edit_user_path(@user.id), class: "btn btn-primary" %>
     		  <% else %>
       			 <%=  link_to "", user_path(current_user.id), class: "col-xs-6 btn btn-default glyphicon glyphicon-wrench" %>
     		  <% end %>
           <!----------------chat room------------------>
           <% unless @user.id == current_user.id %>
             <% if @is_room == true %>
-              <%= link_to 'chat room', room_path(@room_id),class: "far fa-envelope" %>
+              <%= link_to 'チャットルーム', room_path(@room_id),class: "far fa-envelope" %>
             <% else %>
               <%= form_for @room do |f| %>
                 <%= fields_for @entry do |e| %>
                   <%= e.hidden_field :user_id, value: @user.id %>
                 <% end %>
-                <%= f.submit "chat room", class: "far fa-envelope"%>
+                <%= f.submit "チャットルーム", class: "far fa-envelope"%>
               <% end %>
             <% end %>
           <% end %>
@@ -72,7 +72,7 @@
 <!--------------userの投稿一覧------------->
     <main class="clearfix">
         <section class="post">
-            <h2 class="post-headline" style="border-bottom: 8px solid #c0c0c0; color:#808080; font-family: Chalkduster; ">Post index</h2>
+            <h2 class="post-headline" style="border-bottom: 8px solid #c0c0c0; color:#808080; font-family: Chalkduster; ">投稿一覧</h2>
             <div class="post-box" style="padding-top:30px;">
               <div class="post-item clearfix">
                     <% @user.posts.each do |post| %>
@@ -92,8 +92,8 @@
                             <p class="post-text"><%= post.body %></p>
                             <div class="post-edit" style="position:left; float:left; margin:30px 0;">
                               <% if @user == current_user %>
-                                <%= link_to "Edit", edit_post_path(post.id), class: "btn btn-warning" %>
-                                <%= link_to "Destroy", post_path(post.id), method: :delete, "data-confirm" => "Are you sure?",class: "btn btn-danger"  %>
+                                <%= link_to "編集", edit_post_path(post.id), class: "btn btn-warning" %>
+                                <%= link_to "削除", post_path(post.id), method: :delete, "data-confirm" => "Are you sure?",class: "btn btn-danger"  %>
                               <% end %>
                             </div>
                         </div>

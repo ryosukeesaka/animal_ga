@@ -1,59 +1,59 @@
 <div class="profbox">
-  <h5 style="margin: 30px; padding-top: 30px">Edit</h5>
+  <h5 style="margin: 30px; padding-top: 30px">編集</h5>
   <button type="" style="margin: 10px; "><%= link_to "退会する", withdraw_path(current_user.id) %></button>
       <%= form_for(@user) do |f| %>
         <table style="width:50%; margin-left:10px;" class="table table-condensed" cellspacing="0" cellpadding="5" >
           <tr>
-            <td style="background: rgba(0,0,0,0.1);" style="border-style: none;">name</td>
+            <td style="background: rgba(0,0,0,0.1);" style="border-style: none;">名前</td>
             <td valign="top"  style="border-style: none; width:300px;">
               <%= f.text_field :last_name, {size:"10"} %><%= f.text_field :first_name,  {size:"10"} %>
             </td>
           </tr>
           <tr>
-            <td style="background: rgba(0,0,0,0.1);" style="border-style: none;">kana</td>
+            <td style="background: rgba(0,0,0,0.1);" style="border-style: none;">カナ</td>
             <td  valign="top"  style="border-style: none; width:300px;">
               <%= f.text_field :last_name_kana,  {size:"10"} %><%= f.text_field :first_name_kana,  {size:"10"} %>
             </td>
           </tr>
          <tr>
-            <td style="background: rgba(0,0,0,0.1);" style="border-style: none;">prefectutres</td>
+            <td style="background: rgba(0,0,0,0.1);" style="border-style: none;">都道府県</td>
             <td  valign="top"  style="border-style: none; width:150px;">
               <%= f.text_field  :prefectures,{size:"10"} %>
             </td>
           </tr>
           <tr>
-            <td style="background: rgba(0,0,0,0.1);" style="border-style: none;">city</td>
+            <td style="background: rgba(0,0,0,0.1);" style="border-style: none;">市町村</td>
             <td  valign="top"  style="border-style: none; width:150px;">
               <%= f.text_field  :city,{size:"20"} %>
             </td>
           </tr>
           <tr>
-            <td style="background: rgba(0,0,0,0.1);" style="border-style: none;">prof img</td>
+            <td style="background: rgba(0,0,0,0.1);" style="border-style: none;">イメージ</td>
             <td  valign="top"  style="border-style: none; width:300px;">
               <%= f.attachment_field :Image %>
             </td>
           </tr>
           <tr>
-            <td style="background: rgba(0,0,0,0.1);" style="border-style: none;">introducrion</td>
+            <td style="background: rgba(0,0,0,0.1);" style="border-style: none;">自己紹介</td>
             <td  valign="top"  style="border-style: none; width:300px;">
               <%= f.text_area :introduction %>
             </td>
           </tr>
           <tr>
-            <td style="background: rgba(0,0,0,0.1);" style="border-style: none;">mail</td>
+            <td style="background: rgba(0,0,0,0.1);" style="border-style: none;">メール</td>
             <td  valign="top"  style="border-style: none; width:150px;">
               <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
             </td>
           </tr>
           <tr>
-            <td style="background: rgba(0,0,0,0.1);" style="border-style: none;">phone number</td>
+            <td style="background: rgba(0,0,0,0.1);" style="border-style: none;">電話番号</td>
             <td valign="top"  style="border-style: none; width:150px;">
               <%= f.text_field :phone_number %>
             </td>
           </tr>
         </table>
         <div class="submit-botton" style="padding:30px;">
-          <%= f.submit "Update you!!" %>
+          <%= f.submit "送信" %>
         </div>
       <% end %>
 </div>

@@ -17,7 +17,7 @@ class PostsController < ApplicationController
 
         if  @post.save
             redirect_to posts_path
-            flash[:create] = "Successful submission!!"
+            flash[:create] = "投稿しました"
         else
             render "index" #失敗した場合
         end
@@ -28,7 +28,7 @@ class PostsController < ApplicationController
          @post = Post.find(params[:id])
         if @post.update(post_params)
         redirect_to user_path(current_user)
-        flash[:notice] ="Successfully update!!"
+        flash[:notice] ="更新しました"
         else
         render "edit"
         flash[:alert] = "編集に失敗しました。"
@@ -48,7 +48,7 @@ class PostsController < ApplicationController
         post = Post.find(params[:id])
         post.destroy
         redirect_to user_path(current_user)
-        flash[:destroy] = "Post successfully deleted!!"
+        flash[:destroy] = "投稿を削除しました"
     end
 
     private

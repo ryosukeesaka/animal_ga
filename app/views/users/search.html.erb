@@ -1,16 +1,16 @@
 
 
 <% if @user_or_post == "1" %>
-    <h3>Search results</h3>
+    <h3>検索結果</h3>
     <div class="overflow-x:auto;">
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th></th>
-                    <th>image</th>
-                    <th>name</th>
-                    <th>prefectures</th>
-                    <th>follow</th>
+                    <th>イメージ</th>
+                    <th>名前</th>
+                    <th>住所</th>
+                    <th>フォロー</th>
                 </tr>
             </thead>
             <tbody>
@@ -37,7 +37,7 @@
     <main class="clearfix">
     <!-----------------投稿一覧--------------->
         <section class="post" style="float:left;">
-            <h2 class="post-headline" style="border-bottom: 8px solid #e6e6fa; color:#808080; font-family: Chalkduster; ">Search results</h2>
+            <h2 class="post-headline" style="border-bottom: 8px solid #e6e6fa; color:#808080; font-family: Chalkduster; ">検索結果</h2>
             <div class="post-box" style="padding-top:30px;">
                 <div class="post-item clearfix">
                     <% @posts.each do |post| %>

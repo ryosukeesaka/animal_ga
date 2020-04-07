@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
 		@user = User.with_deleted.find(params[:id])
         @users = User.with_deleted.all.order(created_at: :desc)
-        @current_user_entry=Entry.where(user_id: current_user.id)#@current_user.entry何が違う？ _enry
+        @current_user_entry=Entry.where(user_id: current_user.id)
         @user_entry=Entry.where(user_id: @user.id)
         unless @user.id == current_user.id
             @current_user_entry.each do |cu|
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
                     #roomが作成されている場合
                     if cu.room_id == u.room_id then
                         @is_room = true
-                        @room_id = cu.room_id#@room.idはだめ？
+                        @room_id = cu.room_id
                     end
                 end
             end#roomを新しく作成する場合
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
         if @user.update(user_params)
             redirect_to user_path(@user.id)
-            flash[:update] = "You have updated user successfully!!"
+            flash[:update] = "ユーザー情報を更新しました。"
         else
         	render action: :edit
         end

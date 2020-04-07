@@ -1,5 +1,5 @@
 <p><%= flash[:alert] %></p>
-<h4 class="rooms_title">Chat room</h4>
+<h4 class="rooms_title">チャットルーム</h4>
 <div class = "container">
   <% @entries.each do |e| %>
     <div id="message_user">
@@ -11,7 +11,7 @@
     <%= form_for @message,remote: true do |f| %>
       <%= f.text_area :content, placeholder: "...message" , size: 100, class:"form-text-field" %>
         <%= f.hidden_field :room_id, value: @room.id %><!----どのroomからかを送る----->
-         <%= f.submit "submit",class: 'form-submit'%>
+         <%= f.submit "送信",class: 'form-submit'%>
     <% end %>
   </div>
 

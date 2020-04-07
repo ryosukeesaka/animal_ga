@@ -13,8 +13,8 @@
                                 <span class="post-laber">里親募集中</span>
                             <% end %>
                         <div class="title" style="margin-top: 30px;">
-                                <span class="category"><%= post.pet_genre %>/<%= post.pet_name %>/<%= post.pet_age %>/<%= post.created_at.strftime('%Y.%m.%d') %></span>
-                                <div class="post-user-name">by..<%=link_to "#{post.user.last_name}" + "#{post.user.first_name}", edit_admins_user_path(post.user_id) %></div>
+                            <span class="category"><%= post.pet_genre %>/<%= post.pet_name %>/<%= post.pet_age %>/<%= post.created_at.strftime('%Y.%m.%d') %></span>
+                            <div class="post-user-name">by..<%=link_to "#{post.user.last_name}" + "#{post.user.first_name}", edit_admins_user_path(post.user_id) %></div>
                         </div>
                         <p class="post-text"><%= post.body %></p>
                         <div class="post-destroy"><%= link_to "削除", admins_post_path(post.id), method: :DELETE, class:"btn btn-danger" %></div>

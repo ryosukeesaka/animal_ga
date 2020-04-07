@@ -1,6 +1,6 @@
 class HomesController < ApplicationController
 
 	def top
-		flash[:logout] = "Signed out successfully."
+		flash[:logout] = "ログアウトしました"
 	end
 end

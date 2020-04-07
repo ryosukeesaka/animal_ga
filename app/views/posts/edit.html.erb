@@ -15,33 +15,33 @@
 
 <p><%= flash[:alert] %></p>
 
-<h4 style="margin:30px; border-bottom: 8px solid #e6e6fa; color:#a9a9a9; font-family: Chalkduster;">Edit</h4>
+<h4 style="margin:30px; border-bottom: 8px solid #e6e6fa; color:#a9a9a9; font-family: Chalkduster;">編集</h4>
         <div class="container" >
             <%= form_for(@post) do |f| %>
-                <table style="width:100px; margin-left:10px;" class="table table-condensed" cellspacing="0" cellpadding="5" >
+                <table class="table table-condensed" cellspacing="0" cellpadding="5" >
                     <tr>
-                        <td><%= f.label :pet_name %></td>
+                        <td><%= f.label :名前 %></td>
                 　　     <td><%= f.text_field :pet_name, {size:"10"} %></td>
             　　     </tr>
                     <tr>
-                        <td><%= f.label :age %></td>
+                        <td><%= f.label :年齢 %></td>
                         <td><%= f.select :pet_age, Post.pet_ages.keys, {prompt: '選択してください'}, class: 'form-control  btn-default' ,style:"width:150px" %></td>
             　　     </tr>
             　　     <tr>
-                　　     <td><%= f.label :pet_genres %></td>
+                　　     <td><%= f.label :ジャンル %></td>
                 　　     <td><%= f.select :pet_genres,  [["犬", "犬"], ["猫", "猫"], ["ウサギ", "ウサギ"], ["亀","亀"],["鳥","鳥"],["ハムスター", "ハムスター"],["ハリネズミ","ハリネズミ"],["その他","その他"]], class: 'form-control  btn-default' ,style:"        width:150px" %></td>
             　　     </tr>
             　　     <tr>
-                　　     <td><%= f.label :image %></td>
+                　　     <td><%= f.label :イメージ %></td>
                 　　     <td><%= f.attachment_field :image %></td>
             　　     </tr>
             　　     <tr>
-                　　    <td><%= f.label :body %></td>
+                　　    <td><%= f.label :本文 %></td>
                 　　    <td><%= f.text_area  :body %></td>
             　　    </tr>
             　　    <tr>
                 　　  <td></td>
-                　　  <td><%= f.submit 'Update back' %></td>
+                　　  <td><%= f.submit '送信' %></td>
             　　    </tr>
         　　　　  </table>
     　　     <% end %>
