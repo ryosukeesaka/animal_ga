@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'Userモデルのテスト', type: :model do
-
-
   describe 'バリデーションのテスト' do
     let(:user) { build(:user) }
     subject { user.valid? }
@@ -59,17 +57,11 @@ RSpec.describe 'Userモデルのテスト', type: :model do
         expect(User.reflect_on_association(:posts).macro).to eq :has_many
       end
     end
-  end
-
-  describe 'アソシエーションのテスト' do
     context 'Post_commentモデルとの関係' do
       it '1:Nとなっている' do
         expect(User.reflect_on_association(:post_comments).macro).to eq :has_many
       end
     end
-  end
-
-  describe 'アソシエーションのテスト' do
     context 'Favoriteモデルとの関係' do
       it '1:Nとなっている' do
         expect(User.reflect_on_association(:favorites).macro).to eq :has_many

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Postモデルのテスト', type: :model do
   describe 'バリデーションのテスト' do
-    let(:user) { create(:user) }
+    let(:user) { build(:user) }
     let!(:post) { build(:post, user_id: user.id) }
 
     context 'imageカラム' do
@@ -35,7 +35,7 @@ RSpec.describe 'Postモデルのテスト', type: :model do
         expect(post.valid?).to eq false;
       end
       it '200文字以下であること' do
-        post.body = Faker::Lorem.characters(number:201)
+        post.body = "#{'abcdefg'*40}"
         expect(post.valid?).to eq false;
       end
     end
@@ -45,17 +45,16 @@ RSpec.describe 'Postモデルのテスト', type: :model do
         expect(post.valid?).to eq false;
       end
     end
-  describe 'アソシエーションのテスト' do
-    context 'Userモデルとの関係' do
-      it 'N:1となっている' do
-        expect(Post.reflect_on_association(:user).macro).to eq :belongs_to
+    describe 'アソシエーションのテスト' do
+      context 'Userモデルとの関係' do
+        it 'N:1となっている' do
+          expect(Post.reflect_on_association(:user).macro).to eq :belongs_to
+        end
       end
-    end
-  end
-  describe 'アソシエーションのテスト' do
-    context 'Favoriteモデルとの関係' do
-      it 'N:1となっている' do
-        expect(Post.reflect_on_association(:favorite).macro).to eq :belongs_to
+      context 'Favoriteモデルとの関係' do
+        it '1:Nとなっている' do
+          expect(Post.reflect_on_association(:favorites).macro).to eq :has_many
+        end
       end
     end
   end
