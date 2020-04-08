@@ -52,7 +52,7 @@ class UsersController < ApplicationController
         @user_or_post = params[:option]
         @how_search = params[:choice]
             if @user_or_post == "1"
-            @users = User.search(params[:search], @user_or_post,@how_search)#引数（パラメーター）を3つをモデルに渡す。
+            @users = User.search(params[:search], @user_or_post,@how_search)#引数（パラメーター）3つをモデルに渡す。
             else
             @posts = Post.search(params[:search], @user_or_post,@how_search)
             end

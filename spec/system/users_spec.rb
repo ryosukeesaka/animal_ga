@@ -17,9 +17,9 @@ describe 'ユーザー認証のテスト' do
         fill_in 'user[email]', with: 'b@b'
         fill_in 'user[password]', with: '00000000'
         fill_in 'user[password_confirmation]', with: '00000000'
-        click_button 'Sign up'
+        click_button '登録'
 
-        expect(page).to have_content 'successfully'
+        expect(page).to have_content '成功'
       end
       it '新規登録に失敗する' do
         fill_in 'user[last_name]', with: ''
@@ -183,3 +183,4 @@ describe 'ユーザーのテスト' do
       end
     end
   end
+end

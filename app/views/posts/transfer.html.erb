@@ -3,33 +3,27 @@
     <section class="post" style="float:left;">
         <h2 class="post-headline" style="border-bottom: 8px solid #c0c0c0; color:#808080; font-family: Chalkduster; ">里親募集</h2>
         <p>ここは動物の譲渡を募集、応募するページです<i class="far fa-handshake"></i></p>
-        </div>
-        <div class="post-box" style="padding-top:30px;">
-            <div class="post-item clearfix">
-                <% @posts.each do |post| %>
-                    <div class="post-box">
-                        <div class="pict"><%= attachment_image_tag post, :image %></div>
-                        <% if post.transfer %><!--true or falseで判断されているのでtrueを書く必要はない--->
-                            <span class="post-laber">里親募集中/<%= post.user.prefectures %></span>
-                        <% end %>
-                        <div class="title" style="margin-top: 30px;">
-                           <!-------------いいね機能-------------->
-                            <div id="post_<%= post.id %>">
-                                <%= render 'posts/favorite', post: post %>
-                            </div>
-                                <span class="category"><%= post.pet_genre %>/<%= post.pet_name %>/<%= post.pet_age %>/<%= post.created_at.strftime('%Y.%m.%d') %></span>
-                                <div class="post-user-name">by...<%= attachment_image_tag post.user, :Image, :fill, 30, 30, format: 'jpeg',fallback: "no_image.jpg", class: "img-circle pull-left profile-img" %><%=link_to "#{post.user.last_name}" + "#{post.user.first_name}", user_path(post.user_id) %></div>
-                        </div>
-                        <p class="post-text"><%= post.body %></p>
+        <% @posts.each do |post| %>
+            <div class="post-box">
+                <div class="pict"><%= attachment_image_tag post, :image %></div>
+                <% if post.transfer != "not" %>
+                    <span class="post-laber">里親募集中/<%= post.user.prefectures %></span>
+                <% end %>
+                <div class="post-detail" style="margin-top: 30px;">
+                    <!-------------いいね機能-------------->
+                    <div id="post_<%= post.id %>">
+                        <%= render 'posts/favorite', post: post %>
                     </div>
+                    <span class="category"><%= post.pet_genre %>/<%= post.pet_name %>/<%= post.pet_age %>/<%= post.created_at.strftime('%Y.%m.%d') %></span>
+                    <div class="post-user-name">by...<%= attachment_image_tag post.user, :Image, :fill, 30, 30, format: 'jpeg',fallback: "no_image.jpg", class: "img-circle pull-left profile-img" %><%=link_to "#{post.user.last_name}" + "#{post.user.first_name}", user_path(post.user_id) %></div>
+                </div>
+                    <p class="post-text"><%= post.body %></p>
+                </div>
+                <!----------------コメント機能----------------->
+                <div id="post_comments_<%= post.id %>">
+                    <%= render 'posts/post_comment', post: post, post_comment: @post_comment %>
+                </div>
             </div>
-        </div>
-　　　　　<!----------------コメント機能----------------->
-        <div id="post_comments_<%= post.id %>">
-        <%= render 'posts/post_comment', post: post, post_comment: @post_comment %>
-        </div>
-
-
         <% end %>
     </section>
 </main>

@@ -41,13 +41,13 @@ class User < ApplicationRecord
     def User.search(search, user_or_post, how_search)
         if user_or_post == "1"
             if how_search == "1"
-                User.where(["last_name LIKE ? || first_name LIKE ?","%#{search}%" ,"%#{search}%"])
+                User.where(["last_name LIKE ? or first_name LIKE ?","%#{search}%" ,"%#{search}%"])
             elsif how_search == "2"
-                User.where(['last_name LIKE ? || first_name LIKE ?',"%#{search}", "%#{search}"])
+                User.where(['last_name LIKE ? or first_name LIKE ?',"%#{search}", "%#{search}"])
             elsif how_search == "3"
-                User.where(['last_name LIKE ? || first_name LIKE ?',"#{search}%", "#{search}%"])
+                User.where(['last_name LIKE ? or first_name LIKE ?',"#{search}%", "#{search}%"])
             elsif how_search == "4"
-                User.where(['last_name = ? || first_name = ? ',"#{search}", "#{search}"])
+                User.where(['last_name = ? or first_name = ? ',"#{search}", "#{search}"])
             else
 
                 User.all
