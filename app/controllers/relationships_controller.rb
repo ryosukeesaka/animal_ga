@@ -4,9 +4,6 @@ class RelationshipsController < ApplicationController
 	def create
         @user = User.find(params[:id])
         follow = current_user.follow(params[:id])
-        #user.rbのdefでfollowを定義
-        #redirect_to user_path(params[:id])
-        #end
         respond_to do |format|
             format.js
         end
@@ -14,8 +11,7 @@ class RelationshipsController < ApplicationController
 
     def  destroy
     	@user = User.find(params[:id])
-        current_user.unfollow(params[:id])#user.rbのdefでunfollowを定義
-        #redirect_to user_path(params[:id])
+        current_user.unfollow(params[:id])
     end
 
     def follows

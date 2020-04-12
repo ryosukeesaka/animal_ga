@@ -51,11 +51,11 @@ class UsersController < ApplicationController
     def search
         @user_or_post = params[:option]
         @how_search = params[:choice]
-            if @user_or_post == "1"
-            @users = User.search(params[:search], @user_or_post,@how_search)#引数（パラメーター）3つをモデルに渡す。
-            else
+        if @user_or_post == "1"
+            @users = User.search(params[:search], @user_or_post,@how_search)
+        else
             @posts = Post.search(params[:search], @user_or_post,@how_search)
-            end
+        end
     end
 
     def withdraw
@@ -70,7 +70,7 @@ class UsersController < ApplicationController
 
 
 
-	 private
+	private
         def user_params
             params.require(:user).permit(:id,:admin,:first_name,:last_name,:first_name_kana,:last_name_kana,:phone_number,:introduction,:prefectures,:Image, :user_status)
         end

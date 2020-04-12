@@ -1,61 +1,62 @@
 require 'rails_helper'
 
 describe '投稿のテスト' do
-  let(:user) { create(:user) }
-  let!(:user2) { create(:user) }
-  let!(:post) { create(:post, user: user) }
-  let!(:post2) { create(:post, user: user2) }
-  before do
-  	visit new_user_session_path
-  	fill_in 'user[email]', with: user.email
-  	fill_in 'user[password]', with: user.password
-  	click_button 'Log in'
-  end
-  describe 'サイドバーのテスト' do
+  	let(:user) { create(:user) }
+  	let!(:user2) { create(:user) }
+  	let!(:post) { create(:post, user: user) }
+  	let!(:post2) { create(:post, user: user2) }
+  	before do
+  		visit new_user_session_path
+  		fill_in 'user[email]', with: user.email
+  		fill_in 'user[password]', with: user.password
+  		click_button 'Log in'
+  	end
+  	describe 'サイドバーのテスト' do
+  		before do
+  			visit posts_path
+  		end
 		context '表示の確認' do
-		  it 'Pet nameと表示される' do
-	    	expect(page).to have_content 'Pet name'
-		  end
-		   it 'Pet nameフォームが表示される' do
-		  	expect(page).to have_field 'post[pet_name]'
-		  end
-		  it 'Ageと表示される' do
-		  	expect(page).to have_content 'Age'
-		  end
-		  it 'Pet genresと表示される' do
-		  	expect(page).to have_content 'Pet genres'
-		  end
-		  it 'Imageと表示される' do
-		  	expect(page).to have_content 'Image'
-		  end
-		  it 'Transferと表示される' do
-		  	expect(page).to have_content 'Transfer'
-		  end
-		  it 'Bodyと表示される' do
-		  	expect(page).to have_content 'Body'
-		  end
-		  it 'Bodyフォームが表示される' do
-		  	expect(page).to have_field 'post[body]'
-		  end
-		  it '投稿ボタンが表示される' do
-		  	expect(page).to have_button '投稿'
-		  end
-		  it '投稿に成功する' do
-		  	fill_in 'post[pet_name]'
-		  	fill_in 'post[pet_age]'
-		  	fill_in 'post[pet_genres]'
-		  	fill_in 'post[image]'
-		  	fill_in 'post[transfer]'
-		  	fill_in 'post[body]'
-		  	click_button '投稿'
-		  	expect(page).to have_content 'successfully'
-		  end
-		  it '投稿に失敗する' do
-		  	click_button '投稿'
-		  	expect(page).to have_content 'error'
-		  	expect(current_path).to eq('/posts')
-		  end
+		  	it 'ペット名フォームが表示される' do
+		  		expect(page).to have_field 'post[pet_name]'
+		  	end
+		  	it '年齢と表示される' do
+		  		expect(page).to have_content '年齢'
+		  	end
+		  	it 'ジャンルと表示される' do
+		  		expect(page).to have_content 'ジャンル'
+		  	end
+		  	it '画像と表示される' do
+		  		expect(page).to have_content '画像'
+		  	end
+		  	it '譲渡と表示される' do
+		  		expect(page).to have_content '譲渡'
+		  	end
+		  	it '本文と表示される' do
+		  		expect(page).to have_content 'Body'
+		  	end
+		  	it '本文フォームが表示される' do
+		  		expect(page).to have_field 'post[body]'
+		  	end
+		  	it '投稿ボタンが表示される' do
+		  		expect(page).to have_button '投稿'
+		  	end
+		  	it '投稿に成功する' do
+		  		fill_in 'post[pet_name]'
+		  		fill_in 'post[pet_age]'
+		  		fill_in 'post[pet_genres]'
+		  		fill_in 'post[image]'
+		  		fill_in 'post[transfer]'
+		  		fill_in 'post[body]'
+		  		click_button '投稿'
+		  		expect(page).to have_content '投稿しました'
+		  	end
+		  	it '投稿に失敗する' do
+		  		click_button '投稿'
+		  		expect(page).to have_content 'error'
+		  		expect(current_path).to eq('/posts')
+		  	end
 		end
+	end
 
 	describe '編集のテスト' do
   		context '自分の投稿の編集画面への遷移' do

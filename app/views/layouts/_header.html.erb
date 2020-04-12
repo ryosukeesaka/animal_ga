@@ -9,7 +9,7 @@
       <% elsif user_signed_in? %>
         <li class="mx-3"><%= link_to 'トップ', posts_path %></li>
         <li class="mx-3"><%= link_to '里親募集', transfer_path %></li>
-        <li class="mx-3"><%= link_to "マイページ", user_path(current_user) %></li>
+        <li class="mx-3"><%= link_to 'マイページ', user_path(current_user) %></li>
         <li class="mx-3"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
         <li class="mx-3">
         <!--------------検索機能------------------->
@@ -21,8 +21,8 @@
           <% end %>
         </li>
       <% else %>
-        <li class="mx-3"><%= link_to 'サインアップ', new_user_registration_path %></li>
-        <li class="mx-3"><%= link_to 'ログイン', new_user_session_path %></li>
+        <li class="mx-3"><%= link_to "サインアップ", new_user_registration_path %></li>
+        <li class="mx-3"><%= link_to "ログイン", new_user_session_path %></li>
         <li class="mx-3"><%= link_to '管理者ログイン', new_admin_session_path %></li>
       <% end %>
     </ul>

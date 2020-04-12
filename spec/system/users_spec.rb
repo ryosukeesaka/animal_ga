@@ -7,19 +7,18 @@ describe 'ユーザー認証のテスト' do
     end
     context '新規登録画面に遷移' do
       it '新規登録に成功する' do
-        fill_in 'user[last_name]', with: 'taro'
-        fill_in 'user[first_name]', with: 'yamada'
-        fill_in 'user[last_name_kana]', with: 'タロウ'
-        fill_in 'user[first_name_kana]', with: 'ヤマダ'
-        fill_in 'user[prefectures]', with: '滋賀県'
-        fill_in 'user[phonenumber]', with: '11111111111'
-        fill_in 'user[Image_id]', with: '00000'
-        fill_in 'user[email]', with: 'b@b'
-        fill_in 'user[password]', with: '00000000'
-        fill_in 'user[password_confirmation]', with: '00000000'
+        fill_in 'user[last_name]', with: 'last_name'
+        fill_in 'user[first_name]', with: 'first_name'
+        fill_in 'user[last_name_kana]', with: 'last_name_kana'
+        fill_in 'user[first_name_kana]', with: 'first_name_kana'
+        fill_in 'user[prefectures]', with: 'prefectures'
+        fill_in 'user[phone_number]', with: 'phone_number'
+        fill_in 'user[email]', with: 'email'
+        fill_in 'user[password]', with: 'password'
+        fill_in 'user[password_confirmation]', with: 'password'
         click_button '登録'
 
-        expect(page).to have_content '成功'
+         expect(page).to have_content 'successfully'
       end
       it '新規登録に失敗する' do
         fill_in 'user[last_name]', with: ''
@@ -27,12 +26,11 @@ describe 'ユーザー認証のテスト' do
         fill_in 'user[last_name_kana]', with: ''
         fill_in 'user[first_name_kana]', with: ''
         fill_in 'user[prefectures]', with: ''
-        fill_in 'user[phonenumber]', with: ''
-        fill_in 'user[Image_id]', with: ''
+        fill_in 'user[phone_number]', with: ''
         fill_in 'user[email]', with: ''
         fill_in 'user[password]', with: ''
         fill_in 'user[password_confirmation]', with: ''
-        click_button 'Sign up'
+        click_button '登録'
 
         expect(page).to have_content 'error'
       end
@@ -48,15 +46,15 @@ describe 'ユーザー認証のテスト' do
       it 'ログインに成功する' do
         fill_in 'user[email]', with: 'b@b'
         fill_in 'user[password]', with: '00000000'
-        click_button 'Log in'
+        click_button 'ログイン'
 
-        expect(page).to have_content 'successfully'
+        expect(page).to eq(posts_path)
       end
 
       it 'ログインに失敗する' do
         fill_in 'user[email]', with: ''
         fill_in 'user[password]', with: ''
-        click_button 'Log in'
+        click_button 'ログイン'
 
         expect(current_path).to eq(new_user_session_path)
       end
@@ -67,12 +65,12 @@ end
 describe 'ユーザーのテスト' do
   let(:user) { create(:user) }
   let!(:test_user2) { create(:user) }
-  let!(:book) { create(:book, user: user) }
+  let!(:post) { create(:post, user: user) }
   before do
     visit new_user_session_path
     fill_in 'user[name]', with: user.email
     fill_in 'user[password]', with: user.password
-    click_button 'Log in'
+    click_button 'ログイン'
   end
   describe 'ユーザー詳細画面のテスト' do
     before do

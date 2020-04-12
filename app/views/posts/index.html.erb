@@ -11,27 +11,27 @@
                 <%= form_for(@post) do |f| %>
                     <table style="margin-left:10px;">
                     <tr>
-                        <td><%= f.label :pet_name %></td>
+                        <td><%= f.label :ペット名 %></td>
                 　　     <td><%= f.text_field :pet_name, {size:"10"} %></td>
             　　     </tr>
                     <tr>
-                        <td><%= f.label :age %></td>
+                        <td><%= f.label :年齢 %></td>
                         <td><%= f.select :pet_age, Post.pet_ages.keys, {prompt: 'select..'}, class: 'form-control  btn-default' ,style:"width:150px" %></td>
             　　     </tr>
             　　     <tr>
-                        <td><%= f.label :"pet_genres" %></td>
+                        <td><%= f.label :"ジャンル" %></td>
                         <td><%= f.select :pet_genres, [["犬", "犬"], ["猫", "猫"], ["ウサギ", "ウサギ"], ["亀","亀"],["鳥","鳥"],["ハムスター", "ハムスター"],["ハリネズミ","ハリネズミ"],["その他","その他"]] %></td>
                     </tr>
                     <tr>
-                        <td><%= f.label :image %></td>
+                        <td><%= f.label :画像 %></td>
                         <td><%= f.attachment_field :image %></td>
             　　     </tr>
                     <tr><!-----クリックされた場合、host familyページにも投稿が表示される。------>
-                        <td><%= f.label :transfer %></td>
+                        <td><%= f.label :譲渡 %></td>
                         <td><%= f.check_box :transfer, {}, "want", "not" %>＊譲渡を募集する場合は<i class="far fa-check-circle"></i></td>
                     </tr>
                     <tr>
-                        <td><%= f.label :body %></td>
+                        <td><%= f.label :本文 %></td>
                         <td><%= f.text_area  :body %></td>
                     </tr>
                     <tr>

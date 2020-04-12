@@ -7,11 +7,6 @@ class MessagesController < ApplicationController
     end
 
  	  def create
-  		#@message = Message.new(message_params)
-      #@message.user_id = current_user.id
-    	#if @message.save
-         #render 'create.js.erb'
-    	#end
       if Entry.where(user_id: current_user.id, room_id: params[:message][:room_id]).present?
         @message = Message.create(message_params.merge(user_id: current_user.id))#hidden fieldで@messageの中にroom_idを入れてパラメーターを送っている
       else
