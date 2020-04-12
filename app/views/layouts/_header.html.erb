@@ -14,7 +14,7 @@
         <li class="mx-3">
         <!--------------検索機能------------------->
           <%= form_tag(search_path, :method => 'get') do %>
-            <%= select_tag(:option, options_for_select([["ユーサー名で絞る", "1"],["動物ジャンルで絞る","2"]]))%>
+            <%= select_tag(:option, options_for_select([["ユーサー名で絞る", "1"],["譲渡地で絞る","2"]]))%>
             <%= select_tag(:choice, options_for_select([["あいまい検索", "1" ],["後方一致検索", "2" ],["前方一致検索", "3" ],["完全一致検索", "4" ]])) %>
             <%= text_field_tag :search %>
             <%= submit_tag '検索', :name => nil %>

@@ -30,6 +30,10 @@
                         <td><%= f.label :譲渡 %></td>
                         <td><%= f.check_box :transfer, {}, "want", "not" %>＊譲渡を募集する場合は<i class="far fa-check-circle"></i></td>
                     </tr>
+                    <tr><!-----クリックされた場合、host familyページにも投稿が表示される。------>
+                        <td><%= f.label :譲渡地 %></td>
+                        <td><%= f.text_field :transfer_land, {size:"10"} %>＊希望する譲渡地を記入してください</td>
+                    </tr>
                     <tr>
                         <td><%= f.label :本文 %></td>
                         <td><%= f.text_area  :body %></td>

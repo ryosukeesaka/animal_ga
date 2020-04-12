@@ -20,13 +20,13 @@ class Post < ApplicationRecord
   def Post.search(search, user_or_post, how_search)
     if user_or_post == "2"
       if how_search == "1"
-        Post.where(["pet_genres LIKE ?", "%#{search}%"])
+        Post.where(["transfer_land LIKE ?", "%#{search}%"])
       elsif how_search == "2"
-        Post.where(['pet_genres LIKE ?', "%#{search}"])
+        Post.where(['transfer_land LIKE ?', "%#{search}"])
       elsif how_search == "3"
-        Post.where(['pet_genres LIKE ?', "#{search}%"])
+        Post.where(['transfer_land LIKE ?', "#{search}%"])
       elsif how_search == "4"
-        Post.where(['pet_genres LIKE ?', "#{search}"])
+        Post.where(['transfer_land LIKE ?', "#{search}"])
       else
         Post.all
       end
