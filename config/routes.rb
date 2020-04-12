@@ -1,12 +1,6 @@
 Rails.application.routes.draw do
-  namespace :admins do
-    get 'users/index'
-  end
-  namespace :admin do
-    get 'user/new'
-  end
-  	devise_for :admins
-  	devise_for :users
+  devise_for :admins
+  devise_for :users
 
  	root to: "homes#top"
  	post "relationships/:id" => "relationships#create", as: "relationships"
