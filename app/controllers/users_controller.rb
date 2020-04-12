@@ -54,7 +54,7 @@ class UsersController < ApplicationController
         if @user_or_post == "1"
             @users = User.search(params[:search], @user_or_post,@how_search)
         else
-            @posts = Post.search(params[:search], @user_or_post,@how_search)
+            @posts = Post.order(created_at: :desc).search(params[:search], @user_or_post,@how_search)
         end
     end
 

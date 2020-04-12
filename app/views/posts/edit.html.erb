@@ -34,6 +34,10 @@
                 <td><%= f.attachment_field :image %></td>
             </tr>
             <tr>
+                <td><%= f.label :譲渡地 %></td>
+                <td><%= f.text_field :transfer_land, {size:"10"} %></td>
+            </tr>
+            <tr>
                 <td><%= f.label :本文 %></td>
                 <td><%= f.text_area  :body %></td>
             </tr>
