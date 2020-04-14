@@ -45,8 +45,8 @@ body {
 
 main {
   width: 1000px;
-  margin: 0 auto; /* 領域を中央揃え */
-  padding: 70px 0; /* 上下に70px、左右に0pxの内側余白 */
+  margin: 0 auto;
+  padding: 70px 0;
 }
 
 .box:last-child{
@@ -94,7 +94,7 @@ main {
 }
 .post-content {
   height: 400px;
-  margin-left: 3px; /* 領域の右側余白 */
+  margin-left: 3px;
 }
 .post-image {
   width:370px;

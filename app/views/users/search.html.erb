@@ -39,7 +39,7 @@
                 <div class="post-box">
                     <div class="pict"><%= attachment_image_tag post, :image %></div>
                     <% if post.transfer != "not" %>
-                        <span class="post-laber">里親募集中</span>
+                        <span class="post-laber">里親募集中/<%= post.transfer_land %></span>
                     <% end %>
                     <div class="post-detail" style="margin-top: 30px;">
                         <!-------------いいね機能-------------->
