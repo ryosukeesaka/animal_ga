@@ -6,7 +6,6 @@ class PostsController < ApplicationController
         @posts = Post.all.order(created_at: :desc)
         @post = Post.new
         @post_comment = PostComment.new
-
     end
 
     def create

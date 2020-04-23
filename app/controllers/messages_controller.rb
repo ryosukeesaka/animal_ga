@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
 
  	  def create
       if Entry.where(user_id: current_user.id, room_id: params[:message][:room_id]).present?
-        @message = Message.create(message_params.merge(user_id: current_user.id))#hidden fieldで@messageの中にroom_idを入れてパラメーターを送っている
+        @message = Message.create(message_params.merge(user_id: current_user.id))
       else
         flash[:alert] = "メッセージ送信に失敗しました。"
       end

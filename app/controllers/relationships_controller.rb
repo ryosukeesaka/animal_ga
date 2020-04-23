@@ -4,9 +4,6 @@ class RelationshipsController < ApplicationController
 	def create
         @user = User.find(params[:id])
         follow = current_user.follow(params[:id])
-        respond_to do |format|
-            format.js
-        end
     end
 
     def  destroy
