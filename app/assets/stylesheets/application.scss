@@ -350,7 +350,7 @@ background: image-url('image5.jpg');
   margin:10px 0 10px 0;
 }
 
-@media screen and (max-width:425px) {
+@media screen and (max-width:670px) {
   .post-headline {
     color:red;
   }
@@ -394,5 +394,10 @@ background: image-url('image5.jpg');
   }
   .field {
     width:100px;
+  }
+  .navbar>.container, .navbar>.container-fluid {
+    display: -webkit-box;
+    display: flex;
+    flex-wrap: wrap;
   }
 }
