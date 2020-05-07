@@ -70,7 +70,7 @@
 
 <!--------------userの投稿一覧------------->
 <main class="clearfix">
-  <section class="post">
+  <div class="post">
     <h2 class="post-headline" style="border-bottom: 8px solid #c0c0c0; color:#808080; font-family: Chalkduster; ">投稿一覧</h2>
     <% @user.posts.each do |post| %>
       <div class="post-box">
@@ -95,6 +95,6 @@
         </div>
       </div>
     <% end %>
-  </section>
+  </div>
 </main>
 
